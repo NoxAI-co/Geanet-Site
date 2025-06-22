@@ -1,17 +1,31 @@
-import Hero from '../components/blocks/Hero'
-import Features from '../components/blocks/Features'
-import Case2 from '../components/blocks/Case'
-import Feature1 from '../components/blocks/Feature1'
+import Hero from "@/components/blocks/Hero";
+import Features from "@/components/blocks/Features";
+import Feature1 from "@/components/blocks/Feature1";
+import Pricing1 from "@/components/blocks/Pricing1";
 
+/**
+ * HomeContainer - Contenedor principal de la página de inicio
+ * 
+ * Este componente organiza y presenta las secciones principales de la página de inicio:
+ * - Hero: Banner principal con mensaje destacado
+ * - Features: Sección de características generales
+ * - Feature1: Sección de característica destacada
+ * - Pricing1: Sección de planes y precios
+ * 
+ * La estructura está diseñada para presentar la información de manera
+ * clara y atractiva, siguiendo un flujo natural de lectura.
+ * 
+ * @returns {JSX.Element} Contenedor con todas las secciones de la página de inicio
+ */
 const HomeContainer = () => {
   return (
-    <div>
+    <>
       <Hero />
-      <Case2 />
-      <Feature1 />
       <Features />
-    </div>
-  )
-}
+      <Feature1 />
+      <Pricing1 />
+    </>
+  );
+};
 
-export default HomeContainer 
+export default HomeContainer; 

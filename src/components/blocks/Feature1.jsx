@@ -4,7 +4,7 @@ import { Check } from "lucide-react";
 import { Badge } from "../ui/badge";
 import Image from 'next/image';
 
-export const Feature1 = () => (
+const Feature1 = () => (
   <section className="w-full py-20 lg:py-40 bg-white">
     <div className="container mx-auto">
       <div className="grid border rounded-lg container py-8 grid-cols-1 gap-8 items-center lg:grid-cols-2">

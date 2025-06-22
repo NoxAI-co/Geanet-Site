@@ -1,6 +1,6 @@
 const WhatsAppButton = () => {
   // TODO: Reemplazar con el número de WhatsApp real
-  const whatsappNumber = '1234567890'
+  const whatsappNumber = '123456789'
   const message = 'Hola, me gustaría obtener más información sobre Geanet.'
 
   return (
