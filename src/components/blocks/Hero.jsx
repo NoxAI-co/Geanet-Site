@@ -1,13 +1,13 @@
 import { useEffect, useMemo, useState } from "react";
 import { motion } from "framer-motion";
-import { ArrowRight, Phone } from "lucide-react";
-import { Button } from "../ui/button";
-import Link from 'next/link';
+import { MoveRight, PhoneCall } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import Link from "next/link";
 
 const Hero = () => {
   const [titleNumber, setTitleNumber] = useState(0);
   const titles = useMemo(
-    () => ["innovadoras", "eficientes", "personalizadas", "escalables", "seguras"],
+    () => ["innovador", "eficiente", "confiable", "seguro", "inteligente"],
     []
   );
 
@@ -23,19 +23,12 @@ const Hero = () => {
   }, [titleNumber, titles]);
 
   return (
-    <div className="w-full bg-white">
+    <div className="w-full">
       <div className="container mx-auto">
         <div className="flex gap-8 py-20 lg:py-40 items-center justify-center flex-col">
-          <div>
-            <Button variant="secondary" size="sm" className="gap-4" asChild>
-              <Link href="/servicios">
-                Ver nuestros servicios <ArrowRight className="w-4 h-4" />
-              </Link>
-            </Button>
-          </div>
           <div className="flex gap-4 flex-col">
             <h1 className="text-5xl md:text-7xl max-w-2xl tracking-tighter text-center font-regular">
-              <span className="text-indigo-600">Soluciones</span>
+              <span className="text-primary">Tu negocio necesita algo</span>
               <span className="relative flex w-full justify-center overflow-hidden text-center md:pb-4 md:pt-1">
                 &nbsp;
                 {titles.map((title, index) => (
@@ -43,12 +36,7 @@ const Hero = () => {
                     key={index}
                     className="absolute font-semibold"
                     initial={{ opacity: 0, y: "-100" }}
-                    transition={{ 
-                      type: "spring", 
-                      stiffness: 50,
-                      damping: 10,
-                      mass: 0.75
-                    }}
+                    transition={{ type: "spring", stiffness: 50 }}
                     animate={
                       titleNumber === index
                         ? {
@@ -67,22 +55,26 @@ const Hero = () => {
               </span>
             </h1>
 
-            <p className="text-lg md:text-xl leading-relaxed tracking-tight text-gray-600 max-w-2xl text-center">
-              En Geanet, nos especializamos en proporcionar soluciones tecnológicas avanzadas 
-              que impulsan el crecimiento y la eficiencia de tu negocio.
+            <p className="text-lg md:text-xl leading-relaxed tracking-tight text-muted-foreground max-w-2xl text-center">
+              Gestionar una pequeña empresa hoy en día ya es bastante difícil. 
+              Evita más complicaciones abandonando los métodos comerciales obsoletos 
+              y tediosos. Nuestro objetivo es agilizar el comercio de las PYMES, 
+              haciéndolo más fácil y rápido que nunca.
             </p>
           </div>
-          <div className="flex flex-row gap-3">
-            <Button size="lg" className="gap-4" variant="outline" asChild>
-              <Link href="/contacto">
-                Agendar llamada <Phone className="w-4 h-4" />
-              </Link>
-            </Button>
-            <Button size="lg" className="gap-4" asChild>
-              <Link href="/nosotros">
-                Conoce más <ArrowRight className="w-4 h-4" />
-              </Link>
-            </Button>
+          <div className="flex flex-row gap-4 items-center justify-center">
+            <Link href="/contacto">
+              <Button variant="ghost" className="flex items-center gap-2 text-sm hover:bg-transparent hover:text-primary transition-colors">
+                <PhoneCall className="w-4 h-4" />
+                Agendar llamada
+              </Button>
+            </Link>
+            <Link href="/nosotros">
+              <Button className="flex items-center gap-2 bg-[#3b82f6] text-white hover:bg-[#3b82f6]/90 transition-colors rounded-full px-6 py-2">
+                Conoce más
+                <MoveRight className="w-4 h-4" />
+              </Button>
+            </Link>
           </div>
         </div>
       </div>

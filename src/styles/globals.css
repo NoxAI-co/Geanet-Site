@@ -58,4 +58,13 @@
   }
 
   /* TODO: Agregar fuentes personalizadas cuando estén definidas */
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
 } 
