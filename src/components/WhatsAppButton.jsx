@@ -2,7 +2,7 @@ import { useState } from 'react';
 
 const WhatsAppButton = () => {
   const [showTooltip, setShowTooltip] = useState(false);
-  const whatsappNumber = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || '+573123456789';
+  const whatsappNumber = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || '+57123456789';
   const defaultMessage = '¡Hola! Me gustaría obtener más información sobre los servicios de Geanet.';
 
   return (
