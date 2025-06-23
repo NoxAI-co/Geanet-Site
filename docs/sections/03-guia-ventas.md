@@ -1,202 +1,201 @@
 # Guía de Ventas
 
-## Propuesta de Valor
+Esta guía proporciona información detallada sobre los servicios, planes y proceso de ventas de Geanet.
 
-### 1. Diseño y Experiencia de Usuario
-- **Diseño Moderno y Profesional**
-  - Interfaz limpia y minimalista
-  - Animaciones suaves y profesionales
-  - Experiencia de usuario intuitiva
-  - Adaptable a todos los dispositivos
+## Servicios Principales
 
-- **Navegación Inteligente**
-  - Menú principal organizado por servicios
-  - Indicadores visuales de ubicación
-  - Accesos rápidos a funciones principales
-  - Transiciones fluidas entre secciones
+### 1. Consultoría IT
+- Diagnóstico de sistemas
+- Optimización de procesos
+- Recomendaciones técnicas
+- Plan de implementación
+- Seguimiento y soporte
 
-### 2. Funcionalidades Destacadas
+### 2. Desarrollo de Software
+- Aplicaciones web
+- Sistemas empresariales
+- Integraciones
+- Migraciones
+- Mantenimiento
 
-#### Comunicación Directa
-- **WhatsApp Business Integration**
-  - Botón flotante siempre visible
-  - Mensajes predefinidos personalizables
-  - Pausa inteligente al interactuar
-  - Seguimiento de conversiones
-
-- **Formularios Optimizados**
-  - Validación en tiempo real
-  - Mensajes de error claros
-  - Protección contra spam
-  - Confirmaciones automáticas
-
-#### Presentación de Servicios
-- **Carrusel de Clientes**
-  - Logos de empresas destacadas
-  - Autoplay con pausa inteligente
-  - Navegación manual intuitiva
-  - Diseño responsive
-
-- **Sección de Características**
-  - Iconografía moderna
-  - Descripciones claras
-  - Beneficios destacados
-  - Llamadas a la acción efectivas
-
-### 3. Ventajas Competitivas
-
-#### Tecnología de Punta
-- Next.js 13.4
-- React 18.2
-- Tailwind CSS 3.3
-- Componentes UI modernos
-
-#### Optimización y Rendimiento
-- Carga rápida de páginas
-- SEO optimizado
-- Imágenes optimizadas
-- Código eficiente
-
-## Argumentos de Venta
-
-### 1. Para Decisores Técnicos
-
-#### Arquitectura Moderna
-- Framework Next.js actualizado
-- Componentes reutilizables
-- Código mantenible
-- Escalabilidad garantizada
-
-#### Rendimiento
-- Lighthouse Score > 90
-- Carga inicial rápida
-- SEO optimizado
-- Analytics integrado
-
-### 2. Para Decisores de Negocio
-
-#### ROI Demostrable
-- Aumento en conversiones
-- Reducción de rebote
-- Mayor engagement
-- Mejor retención
-
-#### Imagen Profesional
-- Diseño corporativo
-- UX consistente
-- Marca fortalecida
-- Confianza del cliente
+### 3. Servicios Cloud
+- Migración a la nube
+- Optimización de costos
+- Seguridad y compliance
+- Monitoreo y gestión
+- Respaldos y recuperación
 
 ## Planes y Precios
 
-### 1. Plan Básico
-- Landing page profesional
-- Formulario de contacto
-- WhatsApp Business
-- SEO básico
+### Plan Básico
+- **Precio**: $99/mes
+- **Incluye**:
+  - Consultoría básica
+  - Soporte 8x5
+  - 1 proyecto activo
+  - Actualizaciones menores
+  - Respaldos mensuales
 
-### 2. Plan Profesional
-- Múltiples secciones
-- Blog integrado
-- Analytics avanzado
-- Soporte premium
+### Plan Profesional
+- **Precio**: $299/mes
+- **Incluye**:
+  - Consultoría avanzada
+  - Soporte 12x5
+  - 3 proyectos activos
+  - Actualizaciones regulares
+  - Respaldos semanales
+  - Monitoreo básico
+  - Reportes mensuales
 
-### 3. Plan Empresarial
-- Personalización completa
-- Integraciones API
-- Soporte 24/7
-- Hosting premium
+### Plan Empresarial
+- **Precio**: $999/mes
+- **Incluye**:
+  - Consultoría premium
+  - Soporte 24x7
+  - Proyectos ilimitados
+  - Actualizaciones prioritarias
+  - Respaldos diarios
+  - Monitoreo avanzado
+  - Reportes semanales
+  - Gerente de cuenta
+  - SLA garantizado
 
-## Proceso de Venta
+## Proceso de Ventas
 
-### 1. Primer Contacto
-- Demostración del sitio
-- Presentación de casos de éxito
-- Identificación de necesidades
-- Propuesta inicial
+### 1. Contacto Inicial
+- Recepción de consulta (web/WhatsApp)
+- Clasificación de lead
+- Asignación de vendedor
+- Respuesta inicial (< 2 horas)
 
-### 2. Seguimiento
-- Reunión técnica
-- Presentación detallada
-- Resolución de dudas
-- Propuesta personalizada
+### 2. Evaluación de Necesidades
+- Reunión de descubrimiento
+- Análisis de requerimientos
+- Identificación de pain points
+- Documentación de necesidades
 
-### 3. Cierre
-- Definición de alcance
-- Cronograma de implementación
-- Términos y condiciones
+### 3. Propuesta
+- Selección de plan adecuado
+- Personalización de servicios
+- Elaboración de propuesta
+- Presentación al cliente
+
+### 4. Negociación
+- Revisión de términos
+- Ajustes de alcance
+- Definición de entregables
+- Acuerdos de servicio
+
+### 5. Cierre
 - Firma de contrato
+- Configuración inicial
+- Onboarding del cliente
+- Inicio de servicios
+
+## Argumentos de Venta
+
+### 1. Diferenciadores
+- Experiencia comprobada
+- Equipo certificado
+- Tecnología de punta
+- Soporte personalizado
+- Metodología probada
+
+### 2. Beneficios Clave
+- Reducción de costos
+- Mejora de eficiencia
+- Escalabilidad
+- Seguridad garantizada
+- ROI medible
+
+### 3. Casos de Éxito
+- Testimonios de clientes
+- Resultados medibles
+- Historias de transformación
+- Impacto en el negocio
+
+## Material de Apoyo
+
+### 1. Presentaciones
+- Overview de servicios
+- Planes y precios
+- Casos de éxito
+- Proceso de implementación
+
+### 2. Documentación
+- Fichas técnicas
+- Comparativas de planes
+- Términos y condiciones
+- Acuerdos de servicio
+
+### 3. Recursos
+- Videos demostrativos
+- Webinars grabados
+- White papers
+- Infografías
 
 ## Objeciones Comunes
 
 ### 1. Precio
-**Objeción**: "Es más costoso que otras alternativas"
+**Objeción**: "Es muy costoso"
 **Respuesta**: 
-- Demostrar ROI
-- Destacar calidad superior
-- Mencionar garantías
-- Ofrecer planes flexibles
+- Enfatizar ROI
+- Mostrar ahorros a largo plazo
+- Comparar con costos actuales
+- Destacar valor agregado
 
-### 2. Tecnología
-**Objeción**: "Ya tenemos un sitio web"
+### 2. Tiempo
+**Objeción**: "No tenemos tiempo para implementar"
 **Respuesta**:
-- Comparar rendimiento
-- Mostrar nuevas funcionalidades
-- Destacar mejoras UX
-- Enfatizar modernización
+- Mostrar plan de implementación gradual
+- Destacar ahorro de tiempo futuro
+- Enfatizar soporte continuo
+- Mencionar casos similares exitosos
 
-### 3. Tiempo
-**Objeción**: "No es el momento adecuado"
+### 3. Cambio
+**Objeción**: "Estamos conformes con nuestra solución actual"
 **Respuesta**:
-- Mostrar beneficios inmediatos
-- Ofrecer implementación gradual
-- Destacar costo de oportunidad
-- Presentar casos de éxito
+- Identificar pain points actuales
+- Mostrar mejoras potenciales
+- Presentar ventajas competitivas
+- Ofrecer prueba piloto
 
-## Recursos de Venta
+## Seguimiento
 
-### 1. Materiales
-- Presentación comercial
-- Casos de estudio
-- Demos interactivas
-- Comparativas técnicas
+### 1. Post-Venta
+- Reunión de kickoff
+- Plan de implementación
+- Capacitación inicial
+- Configuración de servicios
 
-### 2. Herramientas
-- CRM integrado
-- Seguimiento de leads
-- Templates de propuestas
+### 2. Monitoreo
+- Métricas de uso
+- Satisfacción del cliente
+- Problemas reportados
+- Oportunidades de mejora
+
+### 3. Fidelización
+- Revisiones periódicas
+- Actualizaciones proactivas
+- Recomendaciones de optimización
+- Programas de lealtad
+
+## Recursos Adicionales
+
+### 1. Herramientas
+- CRM para seguimiento
+- Sistema de tickets
+- Plataforma de demos
 - Calculadora de ROI
 
-## Métricas de Éxito
+### 2. Capacitación
+- Materiales de entrenamiento
+- Sesiones de producto
+- Actualizaciones técnicas
+- Mejores prácticas
 
-### 1. KPIs Técnicos
-- Tiempo de carga
-- Tasa de rebote
-- Conversiones
-- Engagement
-
-### 2. KPIs de Negocio
-- Leads generados
-- Tasa de cierre
-- Valor del cliente
-- Satisfacción
-
-## Soporte Post-Venta
-
-### 1. Implementación
-- Setup inicial
-- Migración de contenido
-- Capacitación
-- Documentación
-
-### 2. Mantenimiento
-- Actualizaciones regulares
-- Monitoreo 24/7
-- Backups automáticos
-- Soporte técnico
-
-### 3. Optimización
-- Análisis de datos
-- Mejoras continuas
-- A/B testing
-- Reportes mensuales 
+### 3. Soporte
+- Base de conocimiento
+- FAQ técnico
+- Documentación API
+- Guías de usuario 

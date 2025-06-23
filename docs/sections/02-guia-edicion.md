@@ -1,448 +1,366 @@
 # Guía de Edición
 
-## Requisitos Previos
+Esta guía proporciona instrucciones detalladas para editar y mantener el sitio web de Geanet.
 
-### Software Necesario
-1. **Editor de Código**
-   - Visual Studio Code (recomendado)
-   - Extensiones recomendadas:
-     - ES7 React Snippets
-     - Tailwind CSS IntelliSense
-     - Prettier
-     - ESLint
+## Estructura del Proyecto
 
-2. **Node.js**
-   - Versión 14.0.0 o superior
-   - npm o yarn (preferido)
-
-3. **Git**
-   - Última versión estable
-   - Configuración básica
-
-4. **Navegador**
-   - Chrome (recomendado)
-   - DevTools habilitado
-
-### Conocimientos Requeridos
-- HTML básico
-- CSS básico
-- JavaScript básico
-- React fundamentos
-- Git básico
-
-## Estructura de Archivos
-
-### Carpetas Principales
 ```
 /
 ├── src/
 │   ├── components/
-│   │   ├── common/
-│   │   ├── sections/
-│   │   └── ui/
-│   ├── containers/
-│   ├── pages/
-│   └── styles/
-├── public/
-│   └── images/
-└── docs/
+│   │   ├── common/       # Componentes compartidos
+│   │   │   ├── Footer.jsx
+│   │   │   ├── Header.jsx
+│   │   │   ├── Layout.jsx
+│   │   │   └── WhatsAppButton.jsx
+│   │   ├── sections/     # Secciones principales
+│   │   │   ├── ClientsCarousel.jsx
+│   │   │   ├── ContactForm.jsx
+│   │   │   ├── FAQSection.jsx
+│   │   │   ├── Features.jsx
+│   │   │   ├── Hero.jsx
+│   │   │   ├── PricingPlans.jsx
+│   │   │   └── Stats.jsx
+│   │   └── ui/          # Componentes UI base
+│   │       ├── accordion.jsx
+│   │       ├── badge.jsx
+│   │       ├── button.jsx
+│   │       ├── carousel.jsx
+│   │       └── input.jsx
+│   ├── containers/      # Lógica de páginas
+│   ├── lib/            # Utilidades
+│   ├── pages/          # Rutas
+│   └── styles/         # Estilos globales
+└── public/            # Assets estáticos
 ```
 
-### Descripción de Carpetas
-1. **src/components/**
-   - Componentes reutilizables
-   - Organizados por tipo y función
-   - Fácil de mantener y actualizar
+## Edición de Contenido
 
-2. **src/containers/**
-   - Lógica de negocio
-   - Manejo de estado
-   - Conexión con APIs
+### 1. Sección Hero
 
-3. **src/pages/**
-   - Rutas de la aplicación
-   - Composición de componentes
-   - Configuración de páginas
-
-4. **public/images/**
-   - Recursos estáticos
-   - Imágenes optimizadas
-   - Assets públicos
-
-## Estructura de Componentes
-
-### 1. Componentes de Sección
-
-#### CaseStudy (Carrusel de Clientes)
-```jsx
-// src/components/sections/CaseStudy.jsx
-<CaseStudy />
-```
-Características:
-- Carrusel automático de logos
-- Pausa al hover
-- Navegación manual
-- Responsive en todos los dispositivos
-
-#### Hero (Sección Principal)
-```jsx
-// src/components/sections/Hero.jsx
-<Hero />
-```
-Elementos editables:
+El componente `Hero.jsx` contiene:
 - Título principal
 - Subtítulo
-- Botones de acción
+- Botón de llamada a la acción
 - Imagen de fondo
 
-#### Features (Características)
+```jsx
+// src/components/sections/Hero.jsx
+export default function Hero() {
+  return (
+    <section className="relative h-screen">
+      <div className="container mx-auto px-4 h-full flex items-center">
+        <div className="max-w-2xl">
+          <h1 className="text-4xl md:text-6xl font-bold">
+            {/* Editar título aquí */}
+            Soluciones Tecnológicas para tu Empresa
+          </h1>
+          <p className="mt-4 text-xl text-gray-600">
+            {/* Editar subtítulo aquí */}
+            Optimiza tus procesos con nuestras soluciones personalizadas
+          </p>
+          <Button className="mt-8" size="lg">
+            {/* Editar texto del botón aquí */}
+            Contáctanos
+          </Button>
+        </div>
+      </div>
+    </section>
+  );
+}
+```
+
+### 2. Sección Features
+
+El componente `Features.jsx` muestra las características principales:
+- Título de la sección
+- Lista de características
+- Iconos y descripciones
+
 ```jsx
 // src/components/sections/Features.jsx
-<Features />
-```
-Personalización:
-- Iconos de características
-- Títulos y descripciones
-- Layout y disposición
+const features = [
+  {
+    title: "Consultoría IT",
+    description: "Asesoramiento experto para optimizar tus sistemas",
+    icon: <ComputerIcon className="h-6 w-6" />,
+  },
+  // Agregar más características aquí
+];
 
-### 2. Componentes UI
-
-#### Button
-```jsx
-// src/components/ui/button.jsx
-<Button variant="default" size="lg">
-  Texto del Botón
-</Button>
-```
-Variantes disponibles:
-- default
-- destructive
-- outline
-- secondary
-- ghost
-- link
-
-Tamaños:
-- default
-- sm
-- lg
-- icon
-
-#### Badge
-```jsx
-// src/components/ui/badge.jsx
-<Badge variant="default">
-  Estado
-</Badge>
-```
-Variantes:
-- default
-- secondary
-- destructive
-- outline
-
-#### Carousel
-```jsx
-// src/components/ui/carousel.jsx
-<Carousel>
-  <CarouselContent>
-    <CarouselItem>
-      Contenido
-    </CarouselItem>
-  </CarouselContent>
-  <CarouselPrevious />
-  <CarouselNext />
-</Carousel>
-```
-Opciones:
-- Autoplay
-- Loop
-- Velocidad
-- Controles de navegación
-
-## Personalización
-
-### 1. Estilos Globales
-Archivo: `src/styles/globals.css`
-```css
-:root {
-  --primary: 220 14% 96%;
-  --secondary: 220 14% 90%;
-  /* Otros colores base */
+export default function Features() {
+  return (
+    <section className="py-20 bg-gray-50">
+      <div className="container mx-auto px-4">
+        <h2 className="text-3xl font-bold text-center mb-12">
+          Nuestros Servicios
+        </h2>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          {features.map((feature) => (
+            <FeatureCard key={feature.title} {...feature} />
+          ))}
+        </div>
+      </div>
+    </section>
+  );
 }
 ```
 
-### 2. Configuración de Tema
-Archivo: `tailwind.config.js`
+### 3. Sección Clientes
+
+El componente `ClientsCarousel.jsx` gestiona el carrusel de logos:
+- Logos de clientes
+- Movimiento automático
+- Transiciones suaves
+
+```jsx
+// src/components/sections/ClientsCarousel.jsx
+const clients = [
+  {
+    name: "Cliente 1",
+    logo: "/images/logos/client1.png",
+  },
+  // Agregar más clientes aquí
+];
+
+export default function ClientsCarousel() {
+  return (
+    <section className="py-12">
+      <div className="container mx-auto px-4">
+        <h2 className="text-3xl font-bold text-center mb-8">
+          Nuestros Clientes
+        </h2>
+        <Carousel
+          opts={{
+            align: "center",
+            loop: true,
+            dragFree: true,
+          }}
+        >
+          <CarouselContent>
+            {clients.map((client) => (
+              <CarouselItem key={client.name}>
+                <Image
+                  src={client.logo}
+                  alt={client.name}
+                  width={200}
+                  height={100}
+                  className="object-contain"
+                />
+              </CarouselItem>
+            ))}
+          </CarouselContent>
+        </Carousel>
+      </div>
+    </section>
+  );
+}
+```
+
+### 4. Sección FAQ
+
+El componente `FAQSection.jsx` organiza las preguntas frecuentes:
+- Categorías
+- Preguntas y respuestas
+- Acordeón interactivo
+
+```jsx
+// src/components/sections/FAQSection.jsx
+const faqs = [
+  {
+    question: "¿Qué servicios ofrecen?",
+    answer: "Ofrecemos consultoría IT, desarrollo de software...",
+  },
+  // Agregar más preguntas aquí
+];
+
+export default function FAQSection() {
+  return (
+    <section className="py-20">
+      <div className="container mx-auto px-4">
+        <h2 className="text-3xl font-bold text-center mb-12">
+          Preguntas Frecuentes
+        </h2>
+        <div className="max-w-3xl mx-auto">
+          {faqs.map((faq) => (
+            <Accordion key={faq.question} type="single" collapsible>
+              <AccordionItem value={faq.question}>
+                <AccordionTrigger>{faq.question}</AccordionTrigger>
+                <AccordionContent>{faq.answer}</AccordionContent>
+              </AccordionItem>
+            </Accordion>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+```
+
+### 5. Sección Precios
+
+El componente `PricingPlans.jsx` muestra los planes disponibles:
+- Planes y precios
+- Características incluidas
+- Botones de acción
+
+```jsx
+// src/components/sections/PricingPlans.jsx
+const plans = [
+  {
+    name: "Básico",
+    price: "99",
+    features: [
+      "Característica 1",
+      "Característica 2",
+      // Agregar más características
+    ],
+  },
+  // Agregar más planes aquí
+];
+
+export default function PricingPlans() {
+  return (
+    <section className="py-20 bg-gray-50">
+      <div className="container mx-auto px-4">
+        <h2 className="text-3xl font-bold text-center mb-12">
+          Planes y Precios
+        </h2>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          {plans.map((plan) => (
+            <Card key={plan.name} className="p-6">
+              <CardHeader>
+                <CardTitle>{plan.name}</CardTitle>
+                <CardDescription>
+                  ${plan.price}/mes
+                </CardDescription>
+              </CardHeader>
+              <CardContent>
+                <ul className="space-y-2">
+                  {plan.features.map((feature) => (
+                    <li key={feature} className="flex items-center">
+                      <CheckIcon className="h-5 w-5 text-green-500 mr-2" />
+                      {feature}
+                    </li>
+                  ))}
+                </ul>
+              </CardContent>
+              <CardFooter>
+                <Button className="w-full">Seleccionar Plan</Button>
+              </CardFooter>
+            </Card>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+```
+
+## Estilos y Temas
+
+### Colores
+Los colores del tema se definen en `tailwind.config.js`:
+
 ```javascript
-theme: {
-  extend: {
-    colors: {
-      primary: {...},
-      secondary: {...},
-    },
-    animation: {
-      "fade-in": "fade-in 0.2s ease-out",
+module.exports = {
+  theme: {
+    extend: {
+      colors: {
+        primary: {
+          DEFAULT: "hsl(var(--primary))",
+          foreground: "hsl(var(--primary-foreground))",
+        },
+        secondary: {
+          DEFAULT: "hsl(var(--secondary))",
+          foreground: "hsl(var(--secondary-foreground))",
+        },
+        // ... más colores
+      },
     },
   },
-}
-```
-
-### 3. Variables de Entorno
-Archivo: `.env.local`
-```env
-NEXT_PUBLIC_WHATSAPP_NUMBER=+573123456789
-```
-
-## Guía de Edición
-
-### 1. Logos de Clientes
-Ubicación: `/public/images/logos/`
-- Formato: PNG o SVG
-- Tamaño recomendado: 200x100px
-- Fondo transparente
-
-### 2. Contenido de Secciones
-
-#### Hero
-```jsx
-const heroContent = {
-  title: "Tu Título Principal",
-  subtitle: "Subtítulo descriptivo",
-  cta: {
-    primary: "Botón Principal",
-    secondary: "Botón Secundario"
-  }
 };
 ```
 
-#### Features
-```jsx
-const features = [
-  {
-    icon: "IconComponent",
-    title: "Título de Característica",
-    description: "Descripción detallada"
+### Tipografía
+Las fuentes y estilos de texto se configuran en `globals.css`:
+
+```css
+@layer base {
+  :root {
+    --font-sans: "Inter", sans-serif;
+    
+    /* Tamaños de texto */
+    --text-xs: 0.75rem;
+    --text-sm: 0.875rem;
+    --text-base: 1rem;
+    --text-lg: 1.125rem;
+    --text-xl: 1.25rem;
+    --text-2xl: 1.5rem;
+    --text-3xl: 1.875rem;
+    --text-4xl: 2.25rem;
   }
-];
+}
 ```
 
-### 3. Formularios
+## Imágenes y Assets
 
-#### Contacto
-```jsx
-const formFields = [
-  {
-    name: "nombre",
-    label: "Nombre Completo",
-    type: "text",
-    required: true
-  }
-];
+### Optimización
+1. Comprimir imágenes antes de subirlas
+2. Usar formatos modernos (WebP)
+3. Proporcionar dimensiones correctas
+4. Incluir texto alternativo
+
+### Organización
+```
+public/
+  ├── images/
+  │   ├── logos/      # Logos de clientes
+  │   ├── icons/      # Iconos personalizados
+  │   ├── hero/       # Imágenes de hero
+  │   └── features/   # Imágenes de características
+  └── fonts/         # Fuentes web
 ```
 
 ## Mejores Prácticas
 
-### 1. Imágenes
-- Optimizar antes de subir
-- Usar formatos modernos (WebP)
-- Mantener relación de aspecto
-- Incluir alt text descriptivo
+### SEO
+1. Usar títulos descriptivos
+2. Incluir meta descripciones
+3. Optimizar imágenes
+4. Estructura semántica
 
-### 2. Contenido
-- Mantener consistencia en el tono
-- Usar títulos claros y concisos
-- Incluir llamadas a la acción
-- Mantener textos actualizados
+### Accesibilidad
+1. Textos alternativos
+2. Contraste adecuado
+3. Navegación por teclado
+4. ARIA labels
 
-### 3. Rendimiento
-- Comprimir imágenes
-- Lazy load cuando sea posible
-- Minimizar JavaScript
-- Optimizar fuentes
+### Performance
+1. Lazy loading
+2. Optimización de assets
+3. Caché apropiado
+4. Code splitting
 
-## Mantenimiento
+## Control de Versiones
 
-### 1. Actualizaciones Regulares
-- Revisar enlaces
-- Actualizar contenido
-- Verificar formularios
-- Mantener logos actualizados
+### Ramas
+- `main`: Producción
+- `develop`: Desarrollo
+- `feature/*`: Nuevas características
 
-### 2. Backups
-- Contenido
-- Imágenes
-- Configuración
-- Base de datos
+### Commits
+Seguir [Conventional Commits](https://www.conventionalcommits.org/):
+```
+<tipo>[alcance opcional]: <descripción>
 
-### 3. Monitoreo
-- Analytics
-- Rendimiento
-- Enlaces rotos
-- Formularios
+[cuerpo opcional]
 
-## Seguridad
-
-### 1. Acceso
-- Usar contraseñas seguras
-- Habilitar 2FA
-- Mantener accesos limitados
-- Registrar actividad
-
-### 2. Contenido
-- Validar entradas
-- Sanitizar HTML
-- Prevenir XSS
-- Proteger formularios
-
-## Soporte
-
-### 1. Documentación
-- Mantener guías actualizadas
-- Documentar cambios
-- Registrar problemas
-- Soluciones comunes
-
-### 2. Contacto
-- Soporte técnico
-- Emergencias
-- Mantenimiento
-- Actualizaciones
-
-## Cómo Editar Contenido
-
-### Textos y Contenido
-1. **Sección Hero**
-   ```jsx
-   // src/components/sections/Hero.jsx
-   <h1>Título Principal</h1>
-   <p>Descripción...</p>
-   ```
-
-2. **Características**
-   ```jsx
-   // src/components/sections/Features.jsx
-   const features = [
-     {
-       title: "Característica 1",
-       description: "Descripción..."
-     }
-   ];
-   ```
-
-3. **Precios**
-   ```jsx
-   // src/components/sections/PricingPlans.jsx
-   const plans = [
-     {
-       name: "Plan Básico",
-       price: "99",
-       features: []
-     }
-   ];
-   ```
-
-### Imágenes
-1. **Agregar Nueva Imagen**
-   - Colocar en `/public/images/`
-   - Usar formato optimizado
-   - Nombrar descriptivamente
-
-2. **Actualizar Imagen**
-   ```jsx
-   <Image
-     src="/images/nombre.jpg"
-     alt="Descripción"
-     width={800}
-     height={600}
-   />
-   ```
-
-### Enlaces y Botones
-1. **Navegación**
-   ```jsx
-   // src/components/common/Header.jsx
-   const navigation = [
-     { name: "Inicio", href: "/" }
-   ];
-   ```
-
-2. **Botones de Acción**
-   ```jsx
-   <Button
-     variant="primary"
-     onClick={handleAction}
-   >
-     Texto del Botón
-   </Button>
-   ```
-
-## Cómo Personalizar Estilos
-
-### Colores
-```javascript
-// tailwind.config.js
-module.exports = {
-  theme: {
-    colors: {
-      primary: "#color",
-      secondary: "#color"
-    }
-  }
-}
+[pie opcional]
 ```
 
-### Tipografía
-```css
-/* styles/globals.css */
-@import url('https://fonts.googleapis.com/css2?family=...');
-
-.custom-font {
-  font-family: 'Nombre', sans-serif;
-}
-```
-
-### Componentes UI
-```jsx
-// src/components/ui/button.jsx
-export const Button = {
-  variants: {
-    primary: "bg-primary text-white",
-    secondary: "bg-secondary text-black"
-  }
-}
-```
-
-## Proceso de Desarrollo
-
-### Local
-1. Clonar repositorio
-2. Instalar dependencias
-3. Ejecutar en desarrollo
-4. Realizar cambios
-5. Probar localmente
-
-### Producción
-1. Construir proyecto
-2. Probar build
-3. Desplegar cambios
-4. Verificar en vivo
-5. Monitorear rendimiento
-
-## Solución de Problemas
-
-### Errores Comunes
-1. **Dependencias**
-   - `yarn install`
-   - Limpiar caché
-   - Actualizar packages
-
-2. **Compilación**
-   - Verificar sintaxis
-   - Revisar imports
-   - Limpiar build
-
-3. **Estilos**
-   - Purgar CSS
-   - Verificar clases
-   - Revisar especificidad 
+### Pull Requests
+1. Crear desde `feature/*` a `develop`
+2. Incluir descripción detallada
+3. Agregar screenshots si hay cambios visuales
+4. Esperar revisión y aprobación 

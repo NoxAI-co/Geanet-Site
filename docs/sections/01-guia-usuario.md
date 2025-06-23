@@ -1,119 +1,94 @@
 # Guía de Usuario
 
-## Navegación del Sitio
+## Navegación
 
-### Menú Principal
-El sitio web cuenta con una barra de navegación intuitiva que incluye:
+El sitio web está organizado en las siguientes secciones principales:
 
-1. **Inicio**: Página principal del sitio
-2. **Servicios**: Menú desplegable con nuestras soluciones
-   - Consultoría IT
-   - Desarrollo de Software
-   - Servicios Cloud
-3. **Formulario PQRS**: Sistema de peticiones, quejas y reclamos
-4. **Normatividad**: Información legal y regulatoria
-5. **Sobre Nosotros**: Historia y equipo
-6. **Contacto**: Formularios y datos de contacto
+1. **Inicio**
+   - Banner principal con mensaje de bienvenida
+   - Botón de llamada a la acción principal
+   - Acceso rápido a secciones principales
 
-### Características Principales
+2. **Servicios**
+   - Lista de servicios principales
+   - Descripción detallada de cada servicio
+   - Iconos ilustrativos
+   - Beneficios clave
 
-#### 1. Navegación Adaptativa
-- Menú responsive que se adapta a todos los dispositivos
-- Indicador visual de la página actual
-- Transiciones suaves entre secciones
+3. **Estadísticas**
+   - Métricas importantes
+   - Logros y resultados
+   - Datos relevantes del negocio
 
-#### 2. Contacto Rápido
-- Botón de WhatsApp flotante para contacto inmediato
-- Se pausa al pasar el mouse por encima
-- Mensaje predefinido para facilitar el primer contacto
+4. **Nosotros**
+   - Carrusel de logos de clientes
+   - Referencias y testimonios
+   - Empresas que confían en nosotros
 
-#### 3. Sección de Clientes
-- Carrusel automático de logos
-- Navegación manual con flechas
-- Se pausa al interactuar con él
+5. **Normatividad**
+   - Marco regulatorio
+   - Certificaciones y cumplimiento
+   - Estándares de calidad
+   - Protección de datos
 
-## Funcionalidades
+6. **Precios**
+   - Planes disponibles
+   - Comparación de características
+   - Precios y beneficios
+   - Botones de contacto
 
-### 1. Formulario de Contacto
+7. **FAQ**
+   - Preguntas frecuentes
+   - Información adicional
+   - Soporte y ayuda
+
+8. **Contacto**
+   - Formulario de contacto
+   - Información de contacto
+   - Ubicación y horarios
+   - Redes sociales
+
+## Características
+
+### Navegación Suave
+- El menú superior permite navegar suavemente entre secciones
+- Los enlaces del menú resaltan la sección actual
+- Navegación responsive en dispositivos móviles
+
+### Carrusel de Clientes
+- Muestra logos de clientes en movimiento continuo
+- Transiciones suaves y profesionales
+- Adaptable a diferentes tamaños de pantalla
+
+### Formulario de Contacto
 - Campos validados en tiempo real
 - Mensajes de error claros
 - Confirmación de envío
+- Protección contra spam
 
-### 2. Sección de Preguntas Frecuentes
-- Acordeón interactivo
-- Búsqueda rápida de información
-- Categorías organizadas
-
-### 3. Planes y Precios
-- Comparación clara de características
-- Botones de acción destacados
+### Planes y Precios
+- Comparación clara de planes
 - Precios transparentes
+- Características destacadas
+- Botones de acción directa
+
+### Preguntas Frecuentes
+- Organización por categorías
+- Búsqueda rápida
+- Respuestas detalladas
+- Actualización regular
 
 ## Accesibilidad
 
-### Navegación por Teclado
-- Uso de teclas de flecha para el carrusel
-- Tab para navegar entre elementos
-- Enter para activar botones y enlaces
+- Navegación por teclado
+- Alto contraste en textos
+- Textos alternativos en imágenes
+- Estructura semántica clara
 
-### Diseño Adaptativo
-- Texto legible en todos los dispositivos
-- Contraste adecuado
-- Espaciado optimizado
+## Soporte
 
-## Contacto y Soporte
-
-### Canales de Comunicación
-1. **WhatsApp Business**
-   - Botón flotante en todas las páginas
-   - Respuesta rápida
-   - Horario de atención: 8am - 6pm
-
-2. **Formulario Web**
-   - Disponible 24/7
-   - Confirmación automática
-   - Seguimiento por email
-
-3. **Redes Sociales**
-   - Enlaces en el pie de página
-   - Actualizaciones regulares
-   - Contenido exclusivo
-
-### Política de Privacidad
-- Enlace en el pie de página
-- Información sobre uso de datos
-- Derechos del usuario
-
-### Términos de Servicio
-- Condiciones claras
-- Actualizaciones notificadas
-- Proceso de cancelación
-
-## Recomendaciones
-
-### Navegación Óptima
-1. Usar el menú principal para navegación general
-2. Utilizar las migas de pan para ubicación
-3. Aprovechar los accesos rápidos
-
-### Contacto Efectivo
-1. Usar WhatsApp para consultas rápidas
-2. Formulario web para solicitudes detalladas
-3. Seguir en redes sociales para novedades
-
-### Resolución de Problemas
-1. Consultar la sección de FAQ
-2. Usar el formulario PQRS
-3. Contactar soporte directo
-
-## Actualizaciones y Cambios
-
-El sitio se actualiza regularmente con:
-- Nuevas características
-- Mejoras de rendimiento
-- Contenido actualizado
-
-Manténgase informado a través de:
-- Newsletter
-- Redes sociales
-- Blog corporativo 
+Para cualquier consulta o soporte:
+- WhatsApp: Botón flotante para contacto directo
+- Email: contacto@geanet.com
+- Teléfono: +57 (XXX) XXX-XXXX
+- Horario: Lunes a Viernes, 8:00 AM - 6:00 PM 
