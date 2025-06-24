@@ -48,10 +48,10 @@ const Contact1 = () => {
           <div className="flex flex-col gap-6">
             <div className="flex flex-col gap-4">
               <div>
-                <Badge>Contacto</Badge>
+                <Badge className="bg-primary text-white">Contacto</Badge>
               </div>
               <div className="flex flex-col gap-2">
-                <h4 className="text-3xl md:text-5xl tracking-tighter max-w-xl text-left font-regular text-white">
+                <h4 className="text-3xl md:text-5xl tracking-tighter max-w-xl text-left font-regular">
                   Agenda una reunión con nosotros
                 </h4>
                 <p className="text-lg leading-relaxed tracking-tight text-muted-foreground max-w-sm text-left">
