@@ -1,5 +1,5 @@
 import Head from 'next/head';
-import PQRSSection from '@/components/sections/FAQSection';
+import PQRSForm from '@/components/sections/PQRSForm';
 import Layout from '@/components/Layout';
 import { COMPANY_INFO } from '@/config/project-config';
 
@@ -14,8 +14,8 @@ export default function PQRS() {
         <link rel="canonical" href="https://geanet.com.co/pqrs" />
       </Head>
       <Layout>
-        <div className="pt-16"> {/* Espacio para el header fijo */}
-          <PQRSSection />
+        <div className="pt-20"> {/* Espacio para el header fijo */}
+          <PQRSForm />
         </div>
       </Layout>
     </>
