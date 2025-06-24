@@ -1,23 +1,104 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { CONTACT } from '@/config/project-config';
 
 const WhatsAppButton = () => {
   const [showTooltip, setShowTooltip] = useState(false);
-  const whatsappNumber = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || '+57123456789';
+  const [showInitialMessage, setShowInitialMessage] = useState(false);
+  const [hasShownInitialMessage, setHasShownInitialMessage] = useState(false);
+  
+  const whatsappNumber = `57${CONTACT.whatsapp}`;
   const defaultMessage = '¡Hola! Me gustaría obtener más información sobre los servicios de Geanet.';
+
+  // Obtener hora actual en formato WhatsApp
+  const getCurrentTime = () => {
+    const now = new Date();
+    return now.toLocaleTimeString('es-ES', { 
+      hour: '2-digit', 
+      minute: '2-digit',
+      hour12: false 
+    });
+  };
+
+  useEffect(() => {
+    // Mostrar el mensaje inicial después de 2 segundos de cargar la página
+    const timer = setTimeout(() => {
+      if (!hasShownInitialMessage) {
+        setShowInitialMessage(true);
+        setHasShownInitialMessage(true);
+        
+        // Ocultar el mensaje después de 5 segundos
+        setTimeout(() => {
+          setShowInitialMessage(false);
+        }, 5000);
+      }
+    }, 2000);
+
+    return () => clearTimeout(timer);
+  }, [hasShownInitialMessage]);
 
   return (
     <div className="fixed bottom-6 right-6 z-50">
-      {showTooltip && (
+      {/* Mensaje como WhatsApp real que crece desde el botón */}
+      {showInitialMessage && (
+        <div className="absolute bottom-2 right-20 animate-whatsapp-grow origin-bottom-right">
+                     {/* Fondo de chat de WhatsApp */}
+           <div className="bg-whatsapp-pattern p-1 rounded-lg shadow-xl">
+             {/* Burbuja de mensaje de WhatsApp más rectangular */}
+             <div className="relative rounded-lg p-0.5 shadow-md" style={{ backgroundColor: '#DCF8C6', minWidth: '200px', maxWidth: '280px' }}>
+               <div className="px-3 py-1.5">
+                 <p className="text-gray-800 text-sm leading-tight mb-1">
+                   ¡Escríbenos! Te estamos esperando 👋
+                 </p>
+                 {/* Hora y estado del mensaje */}
+                 <div className="flex items-center justify-end gap-1">
+                   <span className="text-xs text-gray-600">
+                     {getCurrentTime()}
+                   </span>
+                   {/* Check marks correctos de WhatsApp */}
+                   <div className="flex items-center">
+                     <svg className="w-3 h-2.5 text-blue-500" viewBox="0 0 18 13" fill="none">
+                       {/* Primer check */}
+                       <path 
+                         d="M6.5 10.5L2 6L3.41 4.59L6.5 7.68L14.59 -0.41L16 1L6.5 10.5Z" 
+                         fill="currentColor"
+                         transform="translate(1, 1)"
+                       />
+                       {/* Segundo check superpuesto */}
+                       <path 
+                         d="M6.5 10.5L2 6L3.41 4.59L6.5 7.68L14.59 -0.41L16 1L6.5 10.5Z" 
+                         fill="currentColor"
+                         transform="translate(3, 1)"
+                       />
+                     </svg>
+                   </div>
+                 </div>
+               </div>
+              {/* Cola del mensaje de WhatsApp */}
+              <div className="absolute top-1/2 -right-1 transform -translate-y-1/2">
+                <svg className="w-3 h-6" viewBox="0 0 8 13" style={{ color: '#DCF8C6' }} fill="currentColor">
+                  <path d="M0 0v13l8-6.5z"/>
+                </svg>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
+      
+      {/* Tooltip en hover */}
+      {showTooltip && !showInitialMessage && (
         <div className="absolute bottom-full right-0 mb-2 bg-white rounded-lg shadow-lg p-2 text-sm text-gray-700 whitespace-nowrap animate-fade-in">
           ¡Chatea con nosotros!
           <div className="absolute bottom-0 right-4 transform translate-y-1/2 rotate-45 w-2 h-2 bg-white"></div>
         </div>
       )}
+      
       <a
         href={`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(defaultMessage)}`}
         target="_blank"
         rel="noopener noreferrer"
-        className="flex items-center justify-center w-14 h-14 bg-green-500 text-white rounded-full shadow-lg hover:bg-green-600 transition-all duration-300 transform hover:scale-110 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500"
+        className={`flex items-center justify-center w-14 h-14 bg-green-500 text-white rounded-full shadow-lg hover:bg-green-600 transition-all duration-300 transform hover:scale-110 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500 ${
+          showInitialMessage ? 'animate-gentle-bounce' : ''
+        }`}
         aria-label="Contactar por WhatsApp"
         onMouseEnter={() => setShowTooltip(true)}
         onMouseLeave={() => setShowTooltip(false)}
