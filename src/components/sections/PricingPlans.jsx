@@ -31,23 +31,23 @@ const PricingPlans = () => {
   };
 
   return (
-    <div className="w-full py-20 bg-gradient-to-b from-white to-gray-50" id="servicios">
+    <div className="w-full pb-8" id="servicios">
       <div className="container mx-auto">
         {/* Encabezado de la sección */}
-        <div className="flex text-center justify-center items-center gap-4 flex-col">
+        <div className="flex text-center justify-center items-center gap-4 flex-col pt-6">
           <Badge className="bg-accent text-white">Planes de Internet</Badge>
-          <div className="flex gap-2 flex-col">
-            <h2 className="text-3xl md:text-5xl tracking-tighter max-w-xl text-center font-regular">
+          <div className="flex gap-3 flex-col">
+            <h2 className="text-3xl md:text-4xl tracking-tighter max-w-xl text-center font-regular">
               Internet Simétrico por Fibra Óptica
             </h2>
-            <p className="text-lg leading-relaxed tracking-tight text-muted-foreground max-w-2xl text-center">
+            <p className="text-base leading-relaxed tracking-tight text-muted-foreground max-w-2xl text-center">
               Velocidades simétricas de subida y bajada. Tecnología de punta para hogares y empresas.
             </p>
           </div>
         </div>
 
         {/* Grid de planes de internet */}
-        <div className="grid gap-8 pt-16 grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
+        <div className="grid gap-8 pt-8 grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
           {SERVICES.INTERNET.map((plan, index) => (
             <Card key={index} className={`relative ${index === 1 ? 'border-2 border-accent shadow-lg scale-105' : ''}`}>
               {index === 1 && (
@@ -63,7 +63,7 @@ const PricingPlans = () => {
                   {index === 2 && "Para empresas y usuarios intensivos"}
                   {index === 3 && "Máximo rendimiento para grandes empresas"}
                 </CardDescription>
-                <div className="flex flex-col items-center gap-2 py-4">
+                                  <div className="flex flex-col items-center gap-2 py-2">
                   <div className="flex items-baseline gap-1">
                     <span className="text-3xl font-bold text-primary">{formatPrice(plan.price)}</span>
                   </div>
@@ -74,8 +74,8 @@ const PricingPlans = () => {
                   </div>
                 </div>
               </CardHeader>
-              <CardContent className="flex flex-col gap-6">
-                <div className="flex flex-col gap-4 justify-start">
+              <CardContent className="flex flex-col gap-4">
+                <div className="flex flex-col gap-3 justify-start">
                   <div className="flex flex-row gap-3">
                     <Check className="w-5 h-5 mt-0.5 text-accent flex-shrink-0" />
                     <div className="flex flex-col">
@@ -126,7 +126,7 @@ const PricingPlans = () => {
         </div>
 
         {/* Información adicional */}
-        <div className="mt-16 grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-10 grid gap-8 md:grid-cols-2 lg:grid-cols-3">
           {/* Instalación */}
           <Card className="border-l-4 border-l-accent">
             <CardHeader>

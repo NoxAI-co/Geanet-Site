@@ -1,7 +1,7 @@
 // Configuración completa de Geanet Internet
 export const COMPANY_INFO = {
   name: 'Geanet Internet',
-  description: 'Proveedor de servicios de internet ISP especializado en soluciones de conectividad simétrica por fibra óptica para hogares y empresas.',
+  description: 'Geanet Internet es un proveedor de servicios de internet ISP especializado en soluciones de conectividad simétrica por fibra óptica para hogares y empresas. Nuestra tecnología de punta y atención personalizada nos permiten ofrecer un servicio confiable, seguro y acorde con las necesidades actuales del entorno digital.',
   mission: 'Brindar servicios de internet de alta calidad, con velocidades simétricas, estabilidad y atención oportuna, impulsando la transformación digital de hogares y empresas mediante soluciones tecnológicas confiables, accesibles y reguladas.',
   vision: 'Ser líderes en conectividad simétrica por fibra óptica en Colombia, reconocidos por nuestra innovación, atención al cliente y compromiso con la calidad y la regulación, aportando al desarrollo digital del país.',
   values: [
@@ -150,32 +150,32 @@ export const REGULATIONS = [
 export const SERVICE_INDICATORS = [
   {
     indicator: 'Velocidad real vs contratada',
-    target: '≥ 90%',
+    target: 'Mínimo 90%',
     observation: 'Promedio mensual medido por software de red'
   },
   {
     indicator: 'Tiempo promedio de instalación',
-    target: '≤ 48 horas',
+    target: 'Máximo 48 horas',
     observation: 'Desde contrato firmado hasta activación'
   },
   {
     indicator: 'Tiempo de respuesta PQRS',
-    target: '≤ 10 días hábiles',
+    target: 'Máximo 10 días hábiles',
     observation: 'Legalmente exigido'
   },
   {
     indicator: 'Tasa de satisfacción del cliente',
-    target: '≥ 85%',
+    target: 'Mínimo 85%',
     observation: 'Encuestas semestrales'
   },
   {
     indicator: 'Disponibilidad de red',
-    target: '≥ 99.5%',
+    target: 'Mínimo 99.5%',
     observation: 'Medición mensual'
   },
   {
     indicator: 'Tiempos de atención soporte técnico',
-    target: '≤ 15 minutos',
+    target: 'Máximo 15 minutos',
     observation: 'Call center y chat'
   }
 ];

@@ -9,7 +9,8 @@ import {
 import { Badge } from "../ui/badge";
 import { Card, CardContent } from "../ui/card";
 import { COMPANY_INFO } from '@/config/project-config';
-import { Target, Eye, Heart, Shield, Lightbulb, Users, Globe } from 'lucide-react';
+import { Target, Eye, Heart, Shield, Lightbulb, Users, Globe, Phone } from 'lucide-react';
+import { CONTACT } from '@/config/project-config';
 
 /**
  * About Us Section Component - Información Corporativa de Geanet
@@ -60,124 +61,127 @@ const AboutUs = () => {
     'Responsabilidad Social': Globe
   };
 
+  const handleContactClick = () => {
+    const message = encodeURIComponent("Hola, me interesa conocer más sobre Geanet Internet. ¿Podrían brindarme más información?");
+    window.open(`https://wa.me/57${CONTACT.whatsapp}?text=${message}`, '_blank');
+  };
+
   return (
-    <div className="w-full py-20 bg-gradient-to-b from-gray-50 to-white" id="sobre-nosotros">
-      <div className="container mx-auto">
-        {/* Encabezado de la sección */}
-        <div className="flex text-center justify-center items-center gap-4 flex-col mb-16">
-          <Badge className="bg-primary text-white">Sobre Nosotros</Badge>
-          <div className="flex gap-2 flex-col">
-            <h2 className="text-3xl md:text-5xl tracking-tighter max-w-3xl text-center font-regular">
-              {COMPANY_INFO.name}
-            </h2>
-            <p className="text-lg leading-relaxed tracking-tight text-muted-foreground max-w-4xl text-center">
-              {COMPANY_INFO.description}
-            </p>
-          </div>
-        </div>
-
-        {/* Misión y Visión */}
-        <div className="grid gap-8 md:grid-cols-2 mb-20">
-          {/* Misión */}
-          <Card className="border-l-4 border-l-accent shadow-lg hover:shadow-xl transition-shadow duration-300">
-            <CardContent className="p-8">
-              <div className="flex items-center gap-3 mb-6">
-                <div className="p-3 bg-accent/10 rounded-full">
-                  <Target className="w-8 h-8 text-accent" />
-                </div>
-                <h3 className="text-2xl font-bold text-primary">Nuestra Misión</h3>
-              </div>
-              <p className="text-muted-foreground leading-relaxed text-lg">
-                {COMPANY_INFO.mission}
-              </p>
-            </CardContent>
-          </Card>
-
-          {/* Visión */}
-          <Card className="border-l-4 border-l-secondary shadow-lg hover:shadow-xl transition-shadow duration-300">
-            <CardContent className="p-8">
-              <div className="flex items-center gap-3 mb-6">
-                <div className="p-3 bg-secondary/10 rounded-full">
-                  <Eye className="w-8 h-8 text-secondary" />
-                </div>
-                <h3 className="text-2xl font-bold text-primary">Nuestra Visión</h3>
-              </div>
-              <p className="text-muted-foreground leading-relaxed text-lg">
-                {COMPANY_INFO.vision}
-              </p>
-            </CardContent>
-          </Card>
-        </div>
-
-        {/* Valores Corporativos */}
-        <div className="text-center mb-12">
-          <Badge className="bg-accent text-white mb-4">Valores Corporativos</Badge>
-          <h3 className="text-3xl md:text-4xl font-bold text-primary mb-4">
-            Lo que nos define
-          </h3>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Nuestros valores son el fundamento de todo lo que hacemos en Geanet Internet
+    <div className="w-full" id="sobre-nosotros">
+      <div className="container mx-auto px-4">
+        
+        {/* Encabezado Principal */}
+        <div className="text-center py-12">
+          <Badge className="bg-primary text-white mb-6">Sobre Nosotros</Badge>
+          <h1 className="text-4xl md:text-5xl font-bold text-primary mb-6 tracking-tight">
+            {COMPANY_INFO.name}
+          </h1>
+          <p className="text-xl text-muted-foreground max-w-4xl mx-auto leading-relaxed">
+            {COMPANY_INFO.description}
           </p>
         </div>
 
-        {/* Grid de valores */}
-        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-          {COMPANY_INFO.values.map((value, index) => {
-            const IconComponent = valueIcons[value.name] || Users;
-            return (
-              <Card key={index} className="group hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
-                <CardContent className="p-6 text-center">
-                  <div className="flex justify-center mb-4">
-                    <div className="p-4 bg-gradient-to-br from-primary/10 to-accent/10 rounded-full group-hover:from-primary/20 group-hover:to-accent/20 transition-colors duration-300">
-                      <IconComponent className="w-8 h-8 text-primary group-hover:text-accent transition-colors duration-300" />
-                    </div>
+        {/* Misión y Visión */}
+        <div className="py-16">
+          <div className="grid gap-8 md:grid-cols-2 max-w-6xl mx-auto">
+            {/* Misión */}
+            <Card className="border-l-4 border-l-accent shadow-lg hover:shadow-xl transition-all duration-300 h-full">
+              <CardContent className="p-10 pt-12">
+                <div className="text-center mb-8">
+                  <div className="inline-flex p-6 bg-accent/10 rounded-full mb-6">
+                    <Target className="w-12 h-12 text-accent" />
                   </div>
-                  <h4 className="text-xl font-bold text-primary mb-3 group-hover:text-accent transition-colors duration-300">
-                    {value.name}
-                  </h4>
-                  <p className="text-muted-foreground leading-relaxed">
-                    {value.description}
-                  </p>
-                </CardContent>
-              </Card>
-            );
-          })}
+                  <h3 className="text-2xl font-bold text-primary">Nuestra Misión</h3>
+                </div>
+                <p className="text-muted-foreground leading-relaxed text-center text-lg">
+                  {COMPANY_INFO.mission}
+                </p>
+              </CardContent>
+            </Card>
+
+            {/* Visión */}
+            <Card className="border-l-4 border-l-secondary shadow-lg hover:shadow-xl transition-all duration-300 h-full">
+              <CardContent className="p-10 pt-12">
+                <div className="text-center mb-8">
+                  <div className="inline-flex p-6 bg-secondary/10 rounded-full mb-6">
+                    <Eye className="w-12 h-12 text-secondary" />
+                  </div>
+                  <h3 className="text-2xl font-bold text-primary">Nuestra Visión</h3>
+                </div>
+                <p className="text-muted-foreground leading-relaxed text-center text-lg">
+                  {COMPANY_INFO.vision}
+                </p>
+              </CardContent>
+            </Card>
+          </div>
+        </div>
+
+        {/* Valores Corporativos */}
+        <div className="py-16">
+          <div className="text-center mb-12">
+            <Badge className="bg-accent text-white mb-6">Valores Corporativos</Badge>
+            <h2 className="text-3xl md:text-4xl font-bold text-primary mb-6">
+              Lo que nos define
+            </h2>
+            <p className="text-lg text-muted-foreground max-w-3xl mx-auto leading-relaxed">
+              Nuestros valores son el fundamento de todo lo que hacemos en Geanet Internet. 
+              Cada decisión y cada servicio que ofrecemos está guiado por estos principios.
+            </p>
+          </div>
+
+          <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3 max-w-7xl mx-auto">
+            {COMPANY_INFO.values.map((value, index) => {
+              const IconComponent = valueIcons[value.name] || Users;
+              return (
+                <Card key={index} className="group hover:shadow-xl transition-all duration-300 hover:-translate-y-2 h-full">
+                  <CardContent className="p-8 pt-10 text-center h-full flex flex-col">
+                    <div className="flex justify-center mb-8">
+                      <div className="p-5 bg-gradient-to-br from-primary/10 to-accent/10 rounded-full group-hover:from-primary/20 group-hover:to-accent/20 transition-all duration-300 group-hover:scale-110">
+                        <IconComponent className="w-10 h-10 text-primary group-hover:text-accent transition-colors duration-300" />
+                      </div>
+                    </div>
+                    <h3 className="text-xl font-bold text-primary mb-6 group-hover:text-accent transition-colors duration-300">
+                      {value.name}
+                    </h3>
+                    <p className="text-muted-foreground leading-relaxed flex-grow">
+                      {value.description}
+                    </p>
+                  </CardContent>
+                </Card>
+              );
+            })}
+          </div>
         </div>
 
         {/* Llamada a la acción */}
-        <div className="mt-20 text-center">
-          <div className="bg-gradient-to-r from-primary/5 via-accent/5 to-secondary/5 rounded-3xl p-12">
-            <h3 className="text-2xl md:text-3xl font-bold text-primary mb-4">
+        <div className="py-16">
+          <div className="bg-gradient-to-r from-primary/5 via-accent/5 to-secondary/5 rounded-3xl p-8 md:p-12 text-center max-w-5xl mx-auto">
+            <h2 className="text-3xl md:text-4xl font-bold text-primary mb-6">
               ¿Listo para formar parte de la familia Geanet?
-            </h3>
-            <p className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto">
+            </h2>
+            <p className="text-lg text-muted-foreground mb-8 max-w-3xl mx-auto leading-relaxed">
               Únete a miles de familias y empresas que ya confían en nuestra tecnología 
-              de fibra óptica para mantenerse conectados.
+              de fibra óptica para mantenerse conectados con velocidades simétricas y 
+              soporte técnico 24/7.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
               <a 
-                href="#servicios" 
-                className="inline-flex items-center justify-center px-8 py-3 bg-accent text-white rounded-lg hover:bg-accent/90 transition-colors duration-300 font-medium"
-                onClick={(e) => {
-                  e.preventDefault();
-                  document.getElementById('servicios')?.scrollIntoView({ behavior: 'smooth' });
-                }}
+                href="/servicios"
+                className="inline-flex items-center justify-center px-8 py-4 bg-accent text-white rounded-lg hover:bg-accent/90 transition-all duration-300 font-medium text-lg shadow-lg hover:shadow-xl"
               >
                 Ver nuestros planes
               </a>
-              <a 
-                href="#contacto" 
-                className="inline-flex items-center justify-center px-8 py-3 border-2 border-primary text-primary rounded-lg hover:bg-primary hover:text-white transition-colors duration-300 font-medium"
-                onClick={(e) => {
-                  e.preventDefault();
-                  document.getElementById('contacto')?.scrollIntoView({ behavior: 'smooth' });
-                }}
+              <button 
+                onClick={handleContactClick}
+                className="inline-flex items-center justify-center px-8 py-4 border-2 border-primary text-primary rounded-lg hover:bg-primary hover:text-white transition-all duration-300 font-medium text-lg gap-2"
               >
-                Contáctanos
-              </a>
+                <Phone className="w-5 h-5" />
+                Contáctanos por WhatsApp
+              </button>
             </div>
           </div>
         </div>
+
       </div>
     </div>
   );
