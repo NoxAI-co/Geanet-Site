@@ -51,7 +51,7 @@ const Contact1 = () => {
                 <Badge>Contacto</Badge>
               </div>
               <div className="flex flex-col gap-2">
-                <h4 className="text-3xl md:text-5xl tracking-tighter max-w-xl text-left font-regular">
+                <h4 className="text-3xl md:text-5xl tracking-tighter max-w-xl text-left font-regular text-white">
                   Agenda una reunión con nosotros
                 </h4>
                 <p className="text-lg leading-relaxed tracking-tight text-muted-foreground max-w-sm text-left">

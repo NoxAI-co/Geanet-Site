@@ -60,7 +60,7 @@ export default function Hero() {
           
           <div className="flex-grow flex items-center">
             <Image
-              src="/Imagen Corporativa/letras.png"
+              src="/Imagen Corporativa/Letras.png"
               alt="Geanet Internet"
               width={512}
               height={156}
