@@ -14,7 +14,7 @@ export default function SobreNosotros() {
         <link rel="canonical" href="https://geanet.com.co/sobre-nosotros" />
       </Head>
       <Layout>
-        <div className="pt-16"> {/* Espacio para el header fijo */}
+        <div className="pt-20"> {/* Espacio para el header fijo */}
           <AboutUs />
         </div>
       </Layout>

@@ -1,6 +1,5 @@
 import Head from 'next/head';
 import PricingPlans from '@/components/sections/PricingPlans';
-import Features from '@/components/sections/Features';
 import Layout from '@/components/Layout';
 import { COMPANY_INFO } from '@/config/project-config';
 
@@ -15,9 +14,8 @@ export default function Servicios() {
         <link rel="canonical" href="https://geanet.com.co/servicios" />
       </Head>
       <Layout>
-        <div className="pt-16"> {/* Espacio para el header fijo */}
+        <div className="pt-4"> {/* Espacio para el header fijo */}
           <PricingPlans />
-          <Features />
         </div>
       </Layout>
     </>

@@ -7,6 +7,8 @@ import { WEBSITE_SECTIONS } from '@/config/project-config'
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [isScrolled, setIsScrolled] = useState(false)
+  const [isServicesDropdownOpen, setIsServicesDropdownOpen] = useState(false)
+  const [dropdownTimeout, setDropdownTimeout] = useState(null)
   const router = useRouter()
 
   useEffect(() => {
@@ -17,6 +19,14 @@ const Header = () => {
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
+  useEffect(() => {
+    return () => {
+      if (dropdownTimeout) {
+        clearTimeout(dropdownTimeout)
+      }
+    }
+  }, [dropdownTimeout])
+
   const isActive = (path) => {
     if (path === '/') {
       return router.pathname === path
@@ -26,6 +36,21 @@ const Header = () => {
 
   const handleMobileMenuClick = () => {
     setIsMenuOpen(false)
+  }
+
+  const handleDropdownEnter = () => {
+    if (dropdownTimeout) {
+      clearTimeout(dropdownTimeout)
+      setDropdownTimeout(null)
+    }
+    setIsServicesDropdownOpen(true)
+  }
+
+  const handleDropdownLeave = () => {
+    const timeout = setTimeout(() => {
+      setIsServicesDropdownOpen(false)
+    }, 200) // 200ms delay antes de cerrar
+    setDropdownTimeout(timeout)
   }
 
   return (
@@ -47,19 +72,64 @@ const Header = () => {
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex md:items-center md:space-x-1">
-            {WEBSITE_SECTIONS.map((section) => (
-              <Link
-                key={section.path}
-                href={section.path}
-                className={`flex items-center px-3 py-2 text-sm font-medium transition-colors duration-200 rounded-md ${
-                  isActive(section.path)
-                    ? 'text-primary bg-primary/10 border border-primary/20'
-                    : 'text-gray-700 hover:text-primary hover:bg-primary/5'
-                }`}
-              >
-                {section.name}
-              </Link>
-            ))}
+            {WEBSITE_SECTIONS.map((section) => {
+              if (section.name === 'Servicios') {
+                return (
+                  <div 
+                    key={section.path}
+                    className="relative"
+                    onMouseEnter={handleDropdownEnter}
+                    onMouseLeave={handleDropdownLeave}
+                  >
+                    <button
+                      className={`flex items-center px-3 py-2 text-sm font-medium transition-colors duration-200 rounded-md ${
+                        isActive(section.path) || router.pathname === '/indicadores-servicio'
+                          ? 'text-primary bg-primary/10 border border-primary/20'
+                          : 'text-gray-700 hover:text-primary hover:bg-primary/5'
+                      }`}
+                    >
+                      {section.name}
+                      <svg className="ml-1 h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                      </svg>
+                    </button>
+                    {isServicesDropdownOpen && (
+                      <div 
+                        className="absolute top-full left-0 mt-1 w-48 bg-white border border-gray-200 rounded-md shadow-lg z-50"
+                        onMouseEnter={handleDropdownEnter}
+                        onMouseLeave={handleDropdownLeave}
+                      >
+                        <Link
+                          href="/servicios"
+                          className="block px-4 py-3 text-sm text-gray-700 hover:bg-primary/5 hover:text-primary transition-colors duration-150 first:rounded-t-md"
+                        >
+                          Planes
+                        </Link>
+                        <Link
+                          href="/indicadores-servicio"
+                          className="block px-4 py-3 text-sm text-gray-700 hover:bg-primary/5 hover:text-primary transition-colors duration-150 last:rounded-b-md"
+                        >
+                          Indicadores de Servicio
+                        </Link>
+                      </div>
+                    )}
+                  </div>
+                )
+              }
+              return (
+                <Link
+                  key={section.path}
+                  href={section.path}
+                  className={`flex items-center px-3 py-2 text-sm font-medium transition-colors duration-200 rounded-md ${
+                    isActive(section.path)
+                      ? 'text-primary bg-primary/10 border border-primary/20'
+                      : 'text-gray-700 hover:text-primary hover:bg-primary/5'
+                  }`}
+                >
+                  {section.name}
+                </Link>
+              )
+            })}
           </div>
 
           {/* Mobile menu button */}
@@ -100,20 +170,55 @@ const Header = () => {
         {isMenuOpen && (
           <div className="md:hidden">
             <div className="px-2 pt-2 pb-3 space-y-1 bg-white border-t border-gray-200">
-              {WEBSITE_SECTIONS.map((section) => (
-                <Link
-                  key={section.path}
-                  href={section.path}
-                  onClick={handleMobileMenuClick}
-                  className={`block px-3 py-2 rounded-md text-base font-medium transition-colors duration-200 ${
-                    isActive(section.path)
-                      ? 'text-primary bg-primary/10 border border-primary/20'
-                      : 'text-gray-700 hover:text-primary hover:bg-primary/5'
-                  }`}
-                >
-                  {section.name}
-                </Link>
-              ))}
+              {WEBSITE_SECTIONS.map((section) => {
+                if (section.name === 'Servicios') {
+                  return (
+                    <div key={section.path}>
+                      <div className="px-3 py-2 text-base font-medium text-gray-700">
+                        {section.name}
+                      </div>
+                      <div className="ml-4 space-y-1">
+                        <Link
+                          href="/servicios"
+                          onClick={handleMobileMenuClick}
+                          className={`block px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200 ${
+                            router.pathname === '/servicios'
+                              ? 'text-primary bg-primary/10 border border-primary/20'
+                              : 'text-gray-600 hover:text-primary hover:bg-primary/5'
+                          }`}
+                        >
+                          Planes
+                        </Link>
+                        <Link
+                          href="/indicadores-servicio"
+                          onClick={handleMobileMenuClick}
+                          className={`block px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200 ${
+                            router.pathname === '/indicadores-servicio'
+                              ? 'text-primary bg-primary/10 border border-primary/20'
+                              : 'text-gray-600 hover:text-primary hover:bg-primary/5'
+                          }`}
+                        >
+                          Indicadores de Servicio
+                        </Link>
+                      </div>
+                    </div>
+                  )
+                }
+                return (
+                  <Link
+                    key={section.path}
+                    href={section.path}
+                    onClick={handleMobileMenuClick}
+                    className={`block px-3 py-2 rounded-md text-base font-medium transition-colors duration-200 ${
+                      isActive(section.path)
+                        ? 'text-primary bg-primary/10 border border-primary/20'
+                        : 'text-gray-700 hover:text-primary hover:bg-primary/5'
+                    }`}
+                  >
+                    {section.name}
+                  </Link>
+                )
+              })}
             </div>
           </div>
         )}
