@@ -52,13 +52,12 @@ const Footer = () => {
           {/* Logo y descripción */}
           <div className="lg:col-span-1">
             <Link href="/" className="block mb-6">
-              <Image
+              <img
                 src="/Imagen Corporativa/logo_horizontal.svg"
                 alt="Geanet Internet - Proveedor de internet por fibra óptica en Colombia"
-                width={180}
-                height={54}
+                width="180"
+                height="54"
                 className="h-12 w-auto brightness-0 invert"
-                loading="lazy"
               />
             </Link>
             <p className="text-white/80 leading-relaxed mb-4">
