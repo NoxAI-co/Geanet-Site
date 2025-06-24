@@ -50,7 +50,7 @@ export default function Hero() {
           <div className="w-32 h-32 flex-shrink-0 flex items-center justify-center">
             <Image
               src="/Imagen Corporativa/logo_icono.png"
-              alt="Geanet Logo"
+              alt="Logo Geanet Internet - Proveedor ISP de fibra óptica"
               width={128}
               height={128}
               className="w-full h-full animate-spin-slow"
@@ -61,11 +61,11 @@ export default function Hero() {
           <div className="flex-grow flex items-center">
             <Image
               src="/Imagen Corporativa/Letras.png"
-              alt="Geanet Internet"
+              alt="Geanet Internet - Conectividad simétrica por fibra óptica"
               width={512}
               height={156}
               className="w-full h-auto -ml-2"
-              priority
+              loading="lazy"
             />
           </div>
         </div>

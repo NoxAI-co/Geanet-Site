@@ -54,10 +54,11 @@ const Footer = () => {
             <Link href="/" className="block mb-6">
               <Image
                 src="/Imagen Corporativa/logo_horizontal.svg"
-                alt="Geanet Internet"
+                alt="Geanet Internet - Proveedor de internet por fibra óptica en Colombia"
                 width={180}
                 height={54}
                 className="h-12 w-auto brightness-0 invert"
+                loading="lazy"
               />
             </Link>
             <p className="text-white/80 leading-relaxed mb-4">
@@ -146,10 +147,11 @@ const Footer = () => {
               {!imageError ? (
                 <Image
                   src="/images/Familia.webp"
-                  alt="Equipo Geanet"
+                  alt="Equipo de trabajo Geanet Internet - Profesionales dedicados al servicio de internet"
                   fill
                   className="object-cover group-hover:scale-105 transition-transform duration-500"
                   onError={() => setImageError(true)}
+                  loading="lazy"
                 />
               ) : (
                 <div className="w-full h-full flex items-center justify-center bg-white/5 border-2 border-dashed border-white/30 rounded-lg">
