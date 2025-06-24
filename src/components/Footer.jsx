@@ -1,6 +1,5 @@
 import { Facebook, Twitter, Instagram, Mail, Phone, MapPin, MessageCircle } from 'lucide-react';
 import Link from 'next/link';
-import Image from 'next/image';
 import { CONTACT, COMPANY_INFO, WEBSITE_SECTIONS } from '@/config/project-config';
 import { useState } from 'react';
 
@@ -144,13 +143,11 @@ const Footer = () => {
             <h3 className="text-lg font-semibold text-white mb-6">Nuestra Familia</h3>
             <div className="relative aspect-[4/3] bg-white/10 rounded-lg overflow-hidden group">
               {!imageError ? (
-                <Image
+                <img
                   src="/images/Familia.webp"
                   alt="Equipo de trabajo Geanet Internet - Profesionales dedicados al servicio de internet"
-                  fill
-                  className="object-cover group-hover:scale-105 transition-transform duration-500"
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                   onError={() => setImageError(true)}
-                  loading="lazy"
                 />
               ) : (
                 <div className="w-full h-full flex items-center justify-center bg-white/5 border-2 border-dashed border-white/30 rounded-lg">
