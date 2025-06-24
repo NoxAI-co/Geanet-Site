@@ -27,9 +27,9 @@ function MyApp({ Component, pageProps }) {
     <>
       <Head>
         <link rel="icon" href="/favicon.ico" />
-        <link rel="icon" type="image/png" sizes="32x32" href="/Imagen Corporativa/logo_icono_256x256.png" />
-        <link rel="icon" type="image/png" sizes="16x16" href="/Imagen Corporativa/logo_icono_256x256.png" />
-        <link rel="apple-touch-icon" href="/Imagen Corporativa/logo_icono_256x256.png" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/Imagen%20Corporativa/logo_icono_256x256.png" />
+        <link rel="icon" type="image/png" sizes="16x16" href="/Imagen%20Corporativa/logo_icono_256x256.png" />
+        <link rel="apple-touch-icon" href="/Imagen%20Corporativa/logo_icono_256x256.png" />
         <meta name="theme-color" content="#003366" />
       </Head>
       <Component {...pageProps} />

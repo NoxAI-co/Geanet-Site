@@ -53,7 +53,7 @@ const Footer = () => {
           <div className="lg:col-span-1">
             <Link href="/" className="block mb-6">
               <img
-                src="/Imagen Corporativa/logo_horizontal.svg"
+                src="/Imagen%20Corporativa/logo_horizontal.svg"
                 alt="Geanet Internet - Proveedor de internet por fibra óptica en Colombia"
                 width="180"
                 height="54"

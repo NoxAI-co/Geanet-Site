@@ -46,26 +46,24 @@ export default function Hero() {
         id="inicio"
       >
         {/* Logo Container */}
-        <div className="w-full max-w-2xl relative flex flex-col items-center justify-center gap-8">
-          {/* Logo icono centrado */}
-          <div className="w-32 h-32 flex items-center justify-center">
+        <div className="w-full max-w-md relative flex items-center justify-center gap-6">
+          <div className="w-32 h-32 flex-shrink-0 flex items-center justify-center">
             <img
-              src="/Imagen Corporativa/logo_icono.png"
+              src="/Imagen%20Corporativa/logo_icono.png"
               alt="Logo Geanet Internet - Proveedor ISP de fibra óptica"
               width="128"
               height="128"
-              className="w-full h-full object-contain"
+              className="w-full h-full animate-spin-slow object-contain"
             />
           </div>
           
-          {/* Texto Geanet debajo del logo */}
-          <div className="flex items-center justify-center w-full max-w-lg">
+          <div className="flex-grow flex items-center">
             <img
-              src="/Imagen Corporativa/Letras.png"
+              src="/Imagen%20Corporativa/Letras.png"
               alt="Geanet Internet - Conectividad simétrica por fibra óptica"
               width="400"
               height="120"
-              className="w-full h-auto object-contain"
+              className="w-full h-auto -ml-2 object-contain"
             />
           </div>
         </div>

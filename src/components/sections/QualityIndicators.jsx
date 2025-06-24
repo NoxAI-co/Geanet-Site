@@ -145,7 +145,7 @@ const QualityIndicators = () => {
                           <div className="flex flex-col rounded-xl aspect-square bg-white shadow-sm items-center justify-center p-6 m-2 transition-all duration-300 hover:shadow-md group cursor-pointer">
                             <div className="relative w-full h-full grayscale group-hover:grayscale-0 transition-all duration-300">
                               <Image
-                                src={`/Indicadores de calidad/${logo.file}`}
+                                src={`/Indicadores%20de%20calidad/${logo.file}`}
                                 alt={logo.name}
                                 fill
                                 className="object-contain"

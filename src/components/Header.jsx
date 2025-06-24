@@ -61,7 +61,7 @@ const Header = () => {
         <div className="flex justify-between items-center h-16">
           <Link href="/" className="flex items-center space-x-2">
             <img
-              src="/Imagen Corporativa/logo_horizontal.svg"
+              src="/Imagen%20Corporativa/logo_horizontal.svg"
               alt="Geanet Internet"
               width="160"
               height="48"
