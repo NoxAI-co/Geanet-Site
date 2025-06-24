@@ -53,7 +53,8 @@ export default function Hero() {
               alt="Logo Geanet Internet - Proveedor ISP de fibra óptica"
               width="128"
               height="128"
-              className="w-full h-full animate-spin-slow object-contain"
+              className="w-full h-full animate-spin-slow object-contain will-change-transform"
+              loading="eager"
             />
           </div>
           
@@ -64,6 +65,7 @@ export default function Hero() {
               width="400"
               height="120"
               className="w-full h-auto -ml-2 object-contain"
+              loading="eager"
             />
           </div>
         </div>

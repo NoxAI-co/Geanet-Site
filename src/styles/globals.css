@@ -101,6 +101,16 @@
     }
   }
 
+  /* Animación más lenta para el logo giratorio */
+  @keyframes spin-slow {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
   .animate-whatsapp-grow {
     animation: whatsapp-grow 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55);
   }
@@ -113,6 +123,10 @@
     animation: fade-in 0.3s ease-out;
   }
 
+  .animate-spin-slow {
+    animation: spin-slow 8s linear infinite;
+  }
+
   /* Fondo de chat de WhatsApp */
   .bg-whatsapp-pattern {
     background-color: #e5ddd5;
@@ -121,5 +135,51 @@
       radial-gradient(circle at 75% 75%, rgba(255,255,255,0.05) 1px, transparent 1px);
     background-size: 40px 40px;
     background-position: 0 0, 20px 20px;
+  }
+}
+
+/* Optimizaciones para dispositivos móviles */
+@layer base {
+  /* Optimizar rendimiento en móviles */
+  @media (max-width: 768px) {
+    * {
+      -webkit-tap-highlight-color: transparent;
+    }
+    
+    /* Acelerar animaciones en móviles */
+    .animate-spin-slow {
+      animation-duration: 12s; /* Más lento en móviles para mejor rendimiento */
+    }
+    
+    /* Reducir efectos costosos en móviles */
+    .group:hover .group-hover\:scale-105 {
+      transform: none;
+    }
+    
+    /* Optimizar transiciones */
+    .transition-transform {
+      transition-duration: 0.2s;
+    }
+    
+    /* Mejorar scroll en móviles */
+    body {
+      -webkit-overflow-scrolling: touch;
+      overflow-scrolling: touch;
+    }
+  }
+  
+  /* Configuración para dispositivos con preferencia de movimiento reducido */
+  @media (prefers-reduced-motion: reduce) {
+    .animate-spin-slow,
+    .animate-gentle-bounce,
+    .group-hover\:scale-105,
+    .group-hover\:scale-110 {
+      animation: none !important;
+      transform: none !important;
+    }
+    
+    html {
+      scroll-behavior: auto;
+    }
   }
 } 

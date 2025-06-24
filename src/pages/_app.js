@@ -26,6 +26,7 @@ function MyApp({ Component, pageProps }) {
   return (
     <>
       <Head>
+        <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
         <link rel="icon" href="/favicon.ico" />
         <link rel="icon" type="image/png" sizes="32x32" href="/Imagen%20Corporativa/logo_icono_256x256.png" />
         <link rel="icon" type="image/png" sizes="16x16" href="/Imagen%20Corporativa/logo_icono_256x256.png" />
