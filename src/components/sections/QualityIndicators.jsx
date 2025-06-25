@@ -13,42 +13,42 @@ import Link from "next/link";
 const LOGOS = [
   {
     name: "Internet Sano",
-    file: "Internet_sano.svg",
+    file: "Internet_sano.png",
     url: "https://www.mintic.gov.co/portal/inicio/Sala-de-prensa/Noticias/720:Internet-Sano-una-estrategia-para-proteger-la-identidad-de-ninos-y-jovenes-en-la-red"
   },
   {
-    name: "ICBF",
-    file: "Bienestar_familiar.svg",
+    name: "ICBF - Bienestar Familiar",
+    file: "Bienestar_familiar.png",
     url: "https://www.icbf.gov.co/"
   },
   {
     name: "Policía Nacional",
-    file: "Policia_nacional.svg",
+    file: "policia_nacional.png",
     url: "https://www.policia.gov.co/"
   },
   {
     name: "MinTIC",
-    file: "Mintic.svg",
+    file: "MinTIC.png",
     url: "https://www.mintic.gov.co/portal/inicio/"
   },
   {
-    name: "CRC",
-    file: "Comision_de_regulacion_de_comunicaciones.svg",
+    name: "CRC - Comisión de Regulación de Comunicaciones",
+    file: "Comisión_de_Regulación_de_Comunicaciones.png",
     url: "https://crcom.gov.co/es"
   },
   {
-    name: "Fiscalía",
-    file: "Fiscalia_general_de_la_nacion.svg",
+    name: "Fiscalía General de la Nación",
+    file: "Fiscalía_General_de_la_Nación.png",
     url: "https://www.fiscalia.gov.co/colombia/servicios-de-informacion-al-ciudadano/consultas/"
   },
   {
     name: "Todos por un nuevo país",
-    file: "Todos_por_un_nuevo_pais.svg",
+    file: "Todos_por_un_nuevo_pais.png",
     url: "https://www.dnp.gov.co/plan-nacional-desarrollo/Paginas/todos-por-un-nuevo-pais-2014-2018-juan-manuel-santos.aspx"
   },
   {
     name: "Vive para la gente",
-    file: "vive_para_la_gente.svg",
+    file: "vive_para_la_gente.png",
     url: "https://mintic.gov.co/portal/vivedigital/612/w3-propertyvalue-19436.html"
   }
 ];
@@ -62,33 +62,14 @@ const QualityIndicators = () => {
     }
 
     const scrollNext = () => {
-      api.scrollNext({
-        duration: 3000, // Transición más lenta
-        easing: (t) => t, // Movimiento lineal para que sea más suave
-      });
+      api.scrollNext();
     };
 
     // Iniciar el movimiento automático
     const interval = setInterval(scrollNext, 3000);
 
-    // Reiniciar al principio cuando llegue al final
-    const onSelect = () => {
-      const lastSnap = api.scrollSnapList().length - 1;
-      if (api.selectedScrollSnap() === lastSnap) {
-        setTimeout(() => {
-          api.scrollTo(0, {
-            duration: 0, // Sin animación al reiniciar
-          });
-        }, 3000);
-      }
-    };
-
-    // Suscribirse al evento select
-    api.on("select", onSelect);
-
     return () => {
       clearInterval(interval);
-      api.off("select", onSelect);
     };
   }, [api]);
 
@@ -123,9 +104,9 @@ const QualityIndicators = () => {
                 opts={{
                   align: "center",
                   loop: true,
-                  skipSnaps: false,
                   dragFree: true,
                   containScroll: false,
+                  skipSnaps: false,
                 }}
               >
                 <CarouselContent>
@@ -142,16 +123,16 @@ const QualityIndicators = () => {
                           rel="noopener noreferrer"
                           className="block"
                         >
-                          <div className="flex flex-col rounded-xl aspect-square bg-white shadow-sm items-center justify-center p-6 m-2 transition-all duration-300 hover:shadow-md group cursor-pointer">
-                            <div className="relative w-full h-full grayscale group-hover:grayscale-0 transition-all duration-300">
+                          <div className="flex items-center justify-center h-24 md:h-28 lg:h-32 p-4 transition-all duration-300 hover:scale-105 group cursor-pointer">
+                            <div className="relative w-20 h-20 md:w-24 md:h-24 lg:w-28 lg:h-28 grayscale group-hover:grayscale-0 transition-all duration-300">
                               <Image
                                 src={`/Indicadores%20de%20calidad/${logo.file}`}
                                 alt={logo.name}
                                 fill
                                 className="object-contain"
+                                sizes="(max-width: 768px) 80px, (max-width: 1024px) 96px, 112px"
                               />
                             </div>
-                            <span className="text-xs font-medium text-gray-600 mt-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">{logo.name}</span>
                           </div>
                         </Link>
                       </CarouselItem>
