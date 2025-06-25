@@ -1,7 +1,7 @@
 # 🌐 Geanet Internet - Sitio Web Corporativo
 
 <div align="center">
-  <img src="public/Imagen Corporativa/logo_horizontal.svg" alt="Geanet Internet" width="300">
+  <img src="public/Imagen Corporativa/logo_icono.svg" alt="Geanet Internet" width="150">
   
   **Proveedor de servicios de internet por fibra óptica en Colombia**
   
