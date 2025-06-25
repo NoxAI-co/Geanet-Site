@@ -23,12 +23,11 @@ export default function Hero() {
   const router = useRouter();
   const [imagesLoaded, setImagesLoaded] = useState(false);
 
-  // Precargar imágenes críticas
+  // Precargar imagen crítica
   useEffect(() => {
     const preloadImages = async () => {
       const imagePromises = [
-        '/Imagen%20Corporativa/logo_icono.png',
-        '/Imagen%20Corporativa/Letras.png'
+        '/Imagen%20Corporativa/logo_icono.png'
       ].map(src => {
         return new Promise((resolve) => {
           const img = new Image();
@@ -59,7 +58,6 @@ export default function Hero() {
       <Head>
         {/* Preload de imágenes críticas */}
         <link rel="preload" as="image" href="/Imagen%20Corporativa/logo_icono.png" />
-        <link rel="preload" as="image" href="/Imagen%20Corporativa/Letras.png" />
       </Head>
       
       <div className="relative min-h-screen pt-16 pb-24">
@@ -75,20 +73,20 @@ export default function Hero() {
           className="relative z-10 flex flex-col items-center justify-center gap-10 px-4 max-w-5xl mx-auto text-center min-h-[calc(100vh-10rem)]"
           id="inicio"
         >
-          {/* Logo Container */}
-          <div className="w-full max-w-md relative flex items-center justify-center gap-6">
-            <div className="w-32 h-32 flex-shrink-0 flex items-center justify-center relative">
+          {/* Logo Container - Solo ícono centrado */}
+          <div className="w-full flex items-center justify-center">
+            <div className="w-40 h-40 flex items-center justify-center relative">
               {/* Placeholder mientras carga */}
               {!imagesLoaded && (
                 <div className="absolute inset-0 bg-gray-100 rounded-full animate-pulse flex items-center justify-center">
-                  <div className="w-16 h-16 bg-gray-200 rounded-full"></div>
+                  <div className="w-20 h-20 bg-gray-200 rounded-full"></div>
                 </div>
               )}
               <img
                 src="/Imagen%20Corporativa/logo_icono.png"
                 alt="Logo Geanet Internet - Proveedor ISP de fibra óptica"
-                width="128"
-                height="128"
+                width="160"
+                height="160"
                 className={`w-full h-full object-contain will-change-transform transition-opacity duration-300 ${
                   imagesLoaded ? 'animate-spin-slow opacity-100' : 'opacity-0'
                 }`}
@@ -99,29 +97,6 @@ export default function Hero() {
                   backfaceVisibility: 'hidden',
                   perspective: '1000px',
                   transformStyle: 'preserve-3d'
-                }}
-              />
-            </div>
-            
-            <div className="flex-grow flex items-center relative">
-              {/* Placeholder mientras carga */}
-              {!imagesLoaded && (
-                <div className="absolute inset-0 bg-gray-100 rounded-lg animate-pulse flex items-center justify-center -ml-2">
-                  <div className="w-3/4 h-8 bg-gray-200 rounded"></div>
-                </div>
-              )}
-              <img
-                src="/Imagen%20Corporativa/Letras.png"
-                alt="Geanet Internet - Conectividad simétrica por fibra óptica"
-                width="400"
-                height="120"
-                className={`w-full h-auto -ml-2 object-contain transition-opacity duration-300 ${
-                  imagesLoaded ? 'opacity-100' : 'opacity-0'
-                }`}
-                loading="eager"
-                decoding="sync"
-                style={{ 
-                  backfaceVisibility: 'hidden'
                 }}
               />
             </div>
