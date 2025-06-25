@@ -91,7 +91,7 @@ export const CONTACT = {
     management: 'gerencia@geanet.co',
     info: 'info@geanet.co'
   },
-  address: 'Calle X # YZ, Medellín, Antioquia, Colombia',
+  address: 'Calle 29b #84-09, Medellín, Antioquia, Colombia',
   coverage: 'Valle de Aburrá y otras regiones'
 };
 
