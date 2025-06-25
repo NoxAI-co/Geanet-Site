@@ -33,12 +33,12 @@ const LOGOS = [
   },
   {
     name: "CRC - Comisión de Regulación de Comunicaciones",
-    file: "Comisión_de_Regulación_de_Comunicaciones.png",
+    file: "Comision_de_Regulacion_de_Comunicaciones.png",
     url: "https://crcom.gov.co/es"
   },
   {
     name: "Fiscalía General de la Nación",
-    file: "Fiscalía_General_de_la_Nación.png",
+    file: "Fiscalia_General_de_la_Nacion.png",
     url: "https://www.fiscalia.gov.co/colombia/servicios-de-informacion-al-ciudadano/consultas/"
   },
   {
