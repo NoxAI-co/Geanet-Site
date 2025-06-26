@@ -398,6 +398,130 @@ const PQRSForm = () => {
 
         </div>
 
+        {/* Información Legal y Marco Normativo */}
+        <div className="mt-16 bg-gradient-to-r from-blue-50 to-indigo-50 rounded-xl p-8">
+          <div className="max-w-4xl mx-auto">
+            <div className="text-center mb-8">
+              <Badge className="bg-blue-600 text-white mb-4">⚖️ Marco Legal y Regulatorio</Badge>
+              <h2 className="text-3xl font-bold text-primary mb-4">
+                Tus Derechos y Garantías
+              </h2>
+              <p className="text-lg text-muted-foreground">
+                En {COMPANY_INFO.name} respetamos y cumplimos con toda la normatividad vigente para proteger tus derechos como usuario.
+              </p>
+            </div>
+
+            <div className="grid md:grid-cols-2 gap-8">
+              
+              {/* Régimen de Protección */}
+              <Card className="border-l-4 border-l-blue-500 bg-white/70 backdrop-blur-sm">
+                <CardHeader>
+                  <CardTitle className="flex items-center gap-2 text-lg text-blue-700">
+                    <Scale className="w-5 h-5" />
+                    Régimen de Protección al Usuario
+                  </CardTitle>
+                </CardHeader>
+                <CardContent className="space-y-4">
+                  <div className="bg-blue-50 p-4 rounded-lg">
+                    <p className="text-sm font-medium text-blue-800 mb-2">
+                      Resolución 3066 de 2011 - Artículo 42, Inciso 4
+                    </p>
+                    <p className="text-sm text-blue-700">
+                      <span className="font-semibold">Importante:</span> Las peticiones o quejas relacionadas con facturación 
+                      pueden presentarse máximo dentro de los <span className="font-bold">6 meses siguientes</span> contados 
+                      desde el vencimiento del pago oportuno de la factura.
+                    </p>
+                  </div>
+                </CardContent>
+              </Card>
+
+              {/* Derecho de Apelación */}
+              <Card className="border-l-4 border-l-green-500 bg-white/70 backdrop-blur-sm">
+                <CardHeader>
+                  <CardTitle className="flex items-center gap-2 text-lg text-green-700">
+                    <FileText className="w-5 h-5" />
+                    Derecho de Recurso y Apelación
+                  </CardTitle>
+                </CardHeader>
+                <CardContent className="space-y-4">
+                  <div className="bg-green-50 p-4 rounded-lg">
+                    <p className="text-sm font-medium text-green-800 mb-2">
+                      Tienes <span className="font-bold">10 días hábiles</span> después de recibir nuestra respuesta
+                    </p>
+                    <p className="text-sm text-green-700">
+                      Puedes presentar <span className="font-semibold">recurso de reposición</span> si no estás conforme 
+                      con nuestra decisión, y solicitar que tu caso sea revisado por la 
+                      <span className="font-bold"> Superintendencia de Industria y Comercio (SIC)</span>.
+                    </p>
+                  </div>
+                </CardContent>
+              </Card>
+
+            </div>
+
+            {/* Información detallada */}
+            <Card className="mt-8 bg-white/70 backdrop-blur-sm border-2 border-indigo-200">
+              <CardHeader>
+                <CardTitle className="text-xl text-center text-indigo-700">
+                  Compromiso con la Transparencia
+                </CardTitle>
+              </CardHeader>
+              <CardContent className="space-y-6">
+                
+                <div className="bg-indigo-50 p-6 rounded-lg">
+                  <h3 className="font-semibold text-indigo-800 mb-3 flex items-center gap-2">
+                    <Clock className="w-5 h-5" />
+                    Proceso de Recurso de Apelación
+                  </h3>
+                  <div className="text-sm text-indigo-700 space-y-2">
+                    <p>
+                      <span className="font-medium">📝 Presentación:</span> Puedes manifestar tu inconformidad de forma verbal o escrita 
+                      a través de nuestras oficinas físicas o líneas de atención.
+                    </p>
+                    <p>
+                      <span className="font-medium">🔄 Doble recurso:</span> Recurso de reposición (revisión interna) y en subsidio 
+                      de apelación (revisión por la autoridad competente).
+                    </p>
+                    <p>
+                      <span className="font-medium">⚖️ Autoridad competente:</span> La SIC revisará y resolverá tu caso si confirman 
+                      o modifican nuestra decisión de manera desfavorable.
+                    </p>
+                  </div>
+                </div>
+
+                <div className="grid md:grid-cols-2 gap-6">
+                  <div className="bg-white p-4 rounded-lg border border-indigo-200">
+                    <h4 className="font-semibold text-primary mb-2">📞 Contacto SIC</h4>
+                    <div className="text-sm text-muted-foreground space-y-1">
+                      <p><span className="font-medium">Web:</span> sic.gov.co</p>
+                      <p><span className="font-medium">Email:</span> info@sic.gov.co</p>
+                      <p><span className="font-medium">Oficinas físicas:</span> Disponibles nacionalmente</p>
+                    </div>
+                  </div>
+                  
+                  <div className="bg-white p-4 rounded-lg border border-indigo-200">
+                    <h4 className="font-semibold text-primary mb-2">🛡️ Nuestro Compromiso</h4>
+                    <div className="text-sm text-muted-foreground space-y-1">
+                      <p>✓ Respuesta oportuna y clara</p>
+                      <p>✓ Cumplimiento normativo total</p>
+                      <p>✓ Protección de tus derechos</p>
+                      <p>✓ Atención personalizada y transparente</p>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="text-center">
+                  <p className="text-sm text-muted-foreground italic">
+                    "En {COMPANY_INFO.name} creemos que la transparencia y el cumplimiento normativo 
+                    son fundamentales para construir relaciones de confianza con nuestros usuarios."
+                  </p>
+                </div>
+
+              </CardContent>
+            </Card>
+          </div>
+        </div>
+
       </div>
     </div>
   );
