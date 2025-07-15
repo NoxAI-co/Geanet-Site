@@ -3,7 +3,7 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { useRouter } from 'next/router'
 import { WEBSITE_SECTIONS } from '@/config/project-config'
-import { ChevronDown, ChevronUp } from 'lucide-react'
+import { ChevronDown, ChevronUp, CreditCard } from 'lucide-react'
 
 const Header = () => {
   const router = useRouter()
@@ -148,6 +148,17 @@ const Header = () => {
                 </Link>
               )
             })}
+            
+            {/* Portal de Pagos Button */}
+            <a
+              href="https://geanet.online/pay.php"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center px-4 py-2 text-sm font-medium text-white bg-primary hover:bg-primary/90 transition-colors duration-200 rounded-md ml-2 shadow-sm hover:shadow-md"
+            >
+              <CreditCard className="mr-2 h-4 w-4" />
+              Portal de Pagos
+            </a>
           </div>
 
           {/* Mobile menu button */}
@@ -247,6 +258,18 @@ const Header = () => {
                   </Link>
                 )
               })}
+              
+              {/* Portal de Pagos Button - Mobile */}
+              <a
+                href="https://geanet.online/pay.php"
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={handleMobileMenuClick}
+                className="flex items-center px-3 py-3 text-base font-medium text-white bg-primary hover:bg-primary/90 transition-colors duration-200 rounded-md mt-3 shadow-sm"
+              >
+                <CreditCard className="mr-2 h-5 w-5" />
+                Portal de Pagos
+              </a>
             </div>
           </div>
         )}
