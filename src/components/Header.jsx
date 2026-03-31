@@ -151,7 +151,7 @@ const Header = () => {
             
             {/* Portal de Pagos Button */}
             <a
-              href="https://geanet.online/pay.php"
+              href="https://geanet.site/pay.php"
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center px-4 py-2 text-sm font-medium text-white bg-primary hover:bg-primary/90 transition-colors duration-200 rounded-md ml-2 shadow-sm hover:shadow-md"
@@ -261,7 +261,7 @@ const Header = () => {
               
               {/* Portal de Pagos Button - Mobile */}
               <a
-                href="https://geanet.online/pay.php"
+                href="https://geanet.site/pay.php"
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={handleMobileMenuClick}
