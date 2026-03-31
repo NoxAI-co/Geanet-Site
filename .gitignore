@@ -40,3 +40,18 @@ next-env.d.ts
 # Logs
 logs
 *.log
+
+# Build artifacts
+/dist/
+
+# Package managers
+package-lock.json
+
+# macOS
+.DS_Store
+
+# Windows
+Thumbs.db
+
+# Cursor AI
+.cursor/

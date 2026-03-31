@@ -7,7 +7,7 @@
    - Next.js 13.4.19
    - React 18.2.0
    - Tailwind CSS 3.3.0
-   - Radix UI Components
+   - Shadcn/ui Components
    - Embla Carousel
    - Lucide Icons
 
@@ -30,21 +30,21 @@
 │   ├── components/
 │   │   ├── common/       # Componentes compartidos (Header, Footer, Layout)
 │   │   ├── sections/     # Secciones principales de páginas
-│   │   │   ├── CaseStudy.jsx    # Carrusel de logos de clientes
-│   │   │   ├── ContactForm.jsx  # Formulario de contacto
-│   │   │   ├── FAQSection.jsx   # Preguntas frecuentes
-│   │   │   ├── Features.jsx     # Características del servicio
-│   │   │   ├── Hero.jsx        # Sección principal
-│   │   │   ├── PricingPlans.jsx # Planes y precios
-│   │   │   └── Stats.jsx       # Estadísticas y métricas
-│   │   └── ui/          # Componentes UI base
+│   │   │   ├── ClientsCarousel.jsx # Carrusel de logos de clientes
+│   │   │   ├── ContactForm.jsx     # Formulario de contacto
+│   │   │   ├── FAQSection.jsx      # Preguntas frecuentes
+│   │   │   ├── Features.jsx        # Características del servicio
+│   │   │   ├── Hero.jsx           # Sección principal
+│   │   │   ├── PricingPlans.jsx    # Planes y precios
+│   │   │   └── Stats.jsx          # Estadísticas y métricas
+│   │   └── ui/          # Componentes UI base (shadcn/ui)
 │   │       ├── accordion.jsx   # Acordeón interactivo
 │   │       ├── badge.jsx      # Etiquetas y badges
 │   │       ├── button.jsx     # Botones estilizados
 │   │       ├── carousel.jsx   # Carrusel personalizable
 │   │       ├── input.jsx      # Campos de entrada
 │   │       └── ...
-│   ├── containers/      # Lógica de negocio
+│   ├── containers/      # Lógica de negocio y layout de páginas
 │   ├── lib/            # Utilidades y helpers
 │   ├── pages/          # Rutas de Next.js
 │   └── styles/         # Estilos globales
@@ -54,53 +54,100 @@
 └── docs/             # Documentación
 ```
 
+## Convenciones de Desarrollo
+
+### Control de Versiones
+
+1. **Ramas Principales**
+   - `main`: Rama de producción
+   - `develop`: Rama de desarrollo
+
+2. **Ramas de Feature**
+   - Formato: `feature/nombre-descriptivo`
+   - Ejemplos:
+     - `feature/carousel`
+     - `feature/features`
+     - `feature/faq`
+     - `feature/pricing`
+     - `feature/statistics`
+
+3. **Commits**
+   Seguimos [Conventional Commits](https://www.conventionalcommits.org/):
+   ```
+   <tipo>[alcance opcional]: <descripción>
+   
+   [cuerpo opcional]
+   
+   [pie opcional]
+   ```
+   
+   Tipos principales:
+   - `feat`: Nueva característica
+   - `fix`: Corrección de errores
+   - `docs`: Cambios en documentación
+   - `style`: Cambios que no afectan el código
+   - `refactor`: Refactorización de código
+   - `perf`: Mejoras de rendimiento
+   - `test`: Cambios en tests
+   - `chore`: Cambios en build/herramientas
+
+4. **Pull Requests**
+   - Título: Seguir convención de commits
+   - Descripción: Detallada y clara
+   - Screenshots: Para cambios visuales
+   - Reviewers: Asignar apropiadamente
+   - Branches: Crear desde `develop`
+
 ## Componentes Principales
 
 ### Carousel
-El componente Carousel ha sido mejorado con las siguientes características:
+El componente ClientsCarousel implementa un carrusel infinito con movimiento suave:
 
 ```jsx
 import {
   Carousel,
   CarouselContent,
   CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
 } from "@/components/ui/carousel";
 
-// Uso básico
-<Carousel>
-  <CarouselContent>
-    <CarouselItem>Contenido 1</CarouselItem>
-    <CarouselItem>Contenido 2</CarouselItem>
-  </CarouselContent>
-  <CarouselPrevious />
-  <CarouselNext />
-</Carousel>
+const ClientsCarousel = () => {
+  const [api, setApi] = useState();
 
-// Uso avanzado con opciones
-<Carousel
-  opts={{
-    align: "start",
-    loop: true,
-  }}
-  setApi={setApi}
-  className="w-full"
->
-  {/* ... */}
-</Carousel>
+  useEffect(() => {
+    if (!api) return;
+
+    // Configuración de movimiento suave
+    const scrollNext = () => {
+      api.scrollNext({
+        duration: 3000,
+        easing: (t) => t,
+      });
+    };
+
+    const interval = setInterval(scrollNext, 3000);
+    
+    return () => clearInterval(interval);
+  }, [api]);
+
+  return (
+    <Carousel
+      setApi={setApi}
+      opts={{
+        align: "center",
+        loop: true,
+        dragFree: true,
+      }}
+    >
+      <CarouselContent>
+        {/* Items del carrusel */}
+      </CarouselContent>
+    </Carousel>
+  );
+};
 ```
 
-Características:
-- Navegación con teclado (←/→)
-- Controles personalizables
-- Soporte para orientación vertical/horizontal
-- Autoplay configurable
-- Pausa en hover
-- Accesibilidad mejorada
-
 ### Button
-El componente Button ahora soporta múltiples variantes y tamaños:
+Componente Button con variantes y tamaños:
 
 ```jsx
 import { Button } from "@/components/ui/button";
@@ -121,7 +168,7 @@ import { Button } from "@/components/ui/button";
 ```
 
 ### Badge
-El componente Badge para etiquetas y estados:
+Componente Badge para etiquetas y estados:
 
 ```jsx
 import { Badge } from "@/components/ui/badge";
@@ -135,14 +182,12 @@ import { Badge } from "@/components/ui/badge";
 
 ## Configuración de Tailwind
 
-El archivo `tailwind.config.js` ha sido actualizado con nuevas características:
+El archivo `tailwind.config.js`:
 
 ```javascript
 module.exports = {
-  content: [
-    "./src/**/*.{js,ts,jsx,tsx,mdx}",
-  ],
   darkMode: ["class"],
+  content: ["./src/**/*.{js,jsx,ts,tsx}"],
   theme: {
     container: {
       center: true,
@@ -152,36 +197,72 @@ module.exports = {
       },
     },
     extend: {
-      // Animaciones personalizadas
+      colors: {
+        border: "hsl(var(--border))",
+        input: "hsl(var(--input))",
+        ring: "hsl(var(--ring))",
+        background: "hsl(var(--background))",
+        foreground: "hsl(var(--foreground))",
+        primary: {
+          DEFAULT: "hsl(var(--primary))",
+          foreground: "hsl(var(--primary-foreground))",
+        },
+        secondary: {
+          DEFAULT: "hsl(var(--secondary))",
+          foreground: "hsl(var(--secondary-foreground))",
+        },
+        destructive: {
+          DEFAULT: "hsl(var(--destructive))",
+          foreground: "hsl(var(--destructive-foreground))",
+        },
+        muted: {
+          DEFAULT: "hsl(var(--muted))",
+          foreground: "hsl(var(--muted-foreground))",
+        },
+        accent: {
+          DEFAULT: "hsl(var(--accent))",
+          foreground: "hsl(var(--accent-foreground))",
+        },
+        popover: {
+          DEFAULT: "hsl(var(--popover))",
+          foreground: "hsl(var(--popover-foreground))",
+        },
+        card: {
+          DEFAULT: "hsl(var(--card))",
+          foreground: "hsl(var(--card-foreground))",
+        },
+      },
+      borderRadius: {
+        lg: "var(--radius)",
+        md: "calc(var(--radius) - 2px)",
+        sm: "calc(var(--radius) - 4px)",
+      },
       keyframes: {
         "accordion-down": {
-          from: { height: "0" },
+          from: { height: 0 },
           to: { height: "var(--radix-accordion-content-height)" },
         },
-        "fade-in": {
-          "0%": { opacity: "0" },
-          "100%": { opacity: "1" },
+        "accordion-up": {
+          from: { height: "var(--radix-accordion-content-height)" },
+          to: { height: 0 },
         },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
-        "fade-in": "fade-in 0.2s ease-out",
+        "accordion-up": "accordion-up 0.2s ease-out",
       },
     },
   },
-  plugins: [
-    require("@tailwindcss/typography"),
-    require("@tailwindcss/forms"),
-    require("tailwindcss-animate"),
-  ],
+  plugins: [require("tailwindcss-animate")],
 }
 ```
 
 ## Variables de Entorno
 
-Crear un archivo `.env.local` con las siguientes variables:
+Crear un archivo `.env.local`:
 
 ```env
+NEXT_PUBLIC_SITE_URL=http://localhost:3000
 NEXT_PUBLIC_WHATSAPP_NUMBER=+573123456789
 ```
 
@@ -207,36 +288,44 @@ yarn start
 
 ## Mejores Prácticas
 
-1. **Componentes Client-Side**
-- Usar "use client" en componentes interactivos
-- Mantener los componentes UI en `/components/ui`
-- Seguir el patrón de composición para secciones grandes
+1. **Componentes**
+   - Usar "use client" en componentes interactivos
+   - Mantener componentes UI en `/components/ui`
+   - Seguir el patrón de composición
+   - Documentar props con JSDoc
 
-2. **Optimización de Imágenes**
-- Usar el componente `Image` de Next.js
-- Optimizar logos antes de subirlos
-- Mantener las imágenes en `/public/images`
+2. **Optimización**
+   - Usar Next.js Image para imágenes
+   - Implementar lazy loading
+   - Optimizar assets estáticos
+   - Separar componentes client/server
 
 3. **Accesibilidad**
-- Incluir atributos ARIA
-- Asegurar navegación por teclado
-- Mantener contraste adecuado
+   - Incluir atributos ARIA
+   - Asegurar navegación por teclado
+   - Mantener contraste adecuado
+   - Textos alternativos para imágenes
 
 4. **Performance**
-- Lazy loading de imágenes
-- Componentes client/server separados
-- Optimización de fuentes
+   - Minimizar JavaScript
+   - Optimizar fuentes web
+   - Usar caché apropiadamente
+   - Implementar loading states
 
-## Contribución
+## Flujo de Trabajo
 
-1. Crear una rama para cada feature
-2. Seguir las convenciones de commits
-3. Documentar cambios importantes
-4. Actualizar la documentación cuando sea necesario
+1. Crear rama desde `develop`
+2. Implementar cambios
+3. Seguir convenciones de commits
+4. Crear PR a `develop`
+5. Esperar revisión y aprobación
+6. Merge a `develop`
+7. Periódicamente, merge a `main`
 
-## Recursos Adicionales
+## Recursos
 
-- [Documentación de Next.js](https://nextjs.org/docs)
+- [Next.js Docs](https://nextjs.org/docs)
 - [Tailwind CSS](https://tailwindcss.com/docs)
-- [Radix UI](https://www.radix-ui.com/docs/primitives/overview/introduction)
-- [Embla Carousel](https://www.embla-carousel.com/) 
+- [Shadcn/ui](https://ui.shadcn.com/)
+- [Embla Carousel](https://www.embla-carousel.com/)
+- [Conventional Commits](https://www.conventionalcommits.org/) 

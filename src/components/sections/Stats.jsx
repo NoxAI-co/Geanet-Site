@@ -1,5 +1,4 @@
-import { MoveDownLeft, MoveUpRight } from "lucide-react";
-import { Badge } from "../ui/badge";
+import { motion } from 'framer-motion';
 
 /**
  * Stats Section Component
@@ -17,91 +16,56 @@ import { Badge } from "../ui/badge";
  * - Implementar gráficos de tendencias
  */
 
-const Stats = () => {
+const stats = [
+  {
+    value: '500+',
+    label: 'Hogares conectados',
+    description: 'Familias disfrutando de internet de alta velocidad'
+  },
+  {
+    value: '12',
+    label: 'Meses sin intereses',
+    description: 'Flexibilidad en el pago de tu instalación'
+  },
+  {
+    value: '300',
+    label: 'Mbps',
+    description: 'Velocidad máxima disponible'
+  },
+  {
+    value: '24/7',
+    label: 'Soporte',
+    description: 'Atención técnica permanente'
+  }
+];
+
+export default function Stats() {
   return (
-    <div className="w-full py-20">
-      <div className="container mx-auto">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
-          {/* Columna de información */}
-          <div className="flex gap-4 flex-col items-start">
-            <div>
-              <Badge>Estadísticas</Badge>
-            </div>
-            <div className="flex gap-2 flex-col">
-              <h2 className="text-xl md:text-3xl md:text-5xl tracking-tighter lg:max-w-xl font-regular text-left">
-                Nuestro impacto en números
-              </h2>
-              <p className="text-lg lg:max-w-sm leading-relaxed tracking-tight text-muted-foreground text-left">
-                Resultados que demuestran nuestro compromiso con el éxito de nuestros clientes 
-                y la innovación continua en el sector tecnológico.
+    <section className="py-16 bg-gradient-to-b from-background to-border/5">
+      <div className="container mx-auto px-4">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+          {stats.map((stat, index) => (
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
+              viewport={{ once: true }}
+              className="text-center space-y-2"
+            >
+              <div className="text-4xl md:text-5xl font-bold text-primary">
+                {stat.value}
+              </div>
+              <div className="text-xl font-semibold text-secondary">
+                {stat.label}
+              </div>
+              <p className="text-secondary/60 text-sm">
+                {stat.description}
               </p>
-            </div>
-          </div>
-
-          {/* Grid de estadísticas */}
-          <div className="flex justify-center items-center">
-            <div className="grid text-left grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 w-full gap-2">
-              {/* Usuarios activos mensuales */}
-              <div className="flex gap-0 flex-col justify-between p-6 border rounded-md">
-                <MoveUpRight className="w-4 h-4 mb-10 text-primary" />
-                <h2 className="text-4xl tracking-tighter max-w-xl text-left font-regular flex flex-row gap-4 items-end">
-                  500.000
-                  <span className="text-muted-foreground text-sm tracking-normal">
-                    +20.1%
-                  </span>
-                </h2>
-                <p className="text-base leading-relaxed tracking-tight text-muted-foreground max-w-xl text-left">
-                  Usuarios activos mensuales
-                </p>
-              </div>
-
-              {/* Usuarios activos diarios */}
-              <div className="flex gap-0 flex-col justify-between p-6 border rounded-md">
-                <MoveDownLeft className="w-4 h-4 mb-10 text-destructive" />
-                <h2 className="text-4xl tracking-tighter max-w-xl text-left font-regular flex flex-row gap-4 items-end">
-                  20.105
-                  <span className="text-muted-foreground text-sm tracking-normal">
-                    -2%
-                  </span>
-                </h2>
-                <p className="text-base leading-relaxed tracking-tight text-muted-foreground max-w-xl text-left">
-                  Usuarios activos diarios
-                </p>
-              </div>
-
-              {/* Ingresos mensuales */}
-              <div className="flex gap-0 flex-col justify-between p-6 border rounded-md">
-                <MoveUpRight className="w-4 h-4 mb-10 text-primary" />
-                <h2 className="text-4xl tracking-tighter max-w-xl text-left font-regular flex flex-row gap-4 items-end">
-                  $523.520
-                  <span className="text-muted-foreground text-sm tracking-normal">
-                    +8%
-                  </span>
-                </h2>
-                <p className="text-base leading-relaxed tracking-tight text-muted-foreground max-w-xl text-left">
-                  Ingresos mensuales recurrentes
-                </p>
-              </div>
-
-              {/* Costo por adquisición */}
-              <div className="flex gap-0 flex-col justify-between p-6 border rounded-md">
-                <MoveUpRight className="w-4 h-4 mb-10 text-primary" />
-                <h2 className="text-4xl tracking-tighter max-w-xl text-left font-regular flex flex-row gap-4 items-end">
-                  $1052
-                  <span className="text-muted-foreground text-sm tracking-normal">
-                    +2%
-                  </span>
-                </h2>
-                <p className="text-base leading-relaxed tracking-tight text-muted-foreground max-w-xl text-left">
-                  Costo por adquisición
-                </p>
-              </div>
-            </div>
-          </div>
+            </motion.div>
+          ))}
         </div>
       </div>
-    </div>
+    </section>
   );
-};
-
-export default Stats; 
+} 
